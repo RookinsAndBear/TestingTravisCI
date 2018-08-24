@@ -12,6 +12,18 @@ before_script:
   flake8 .
 script:
 - py.test adam --cov=adam --ignore=adam/tests/integration_tests/hypercube_test.py
+# blocklist
+#branches:
+#  except:
+#  - legacy
+#  - experimental
+
+# safelist
+branches:
+  only:
+#  - master
+  - dummyBranch-to-test-Travis
+  - stable
 after_success:
 - coveralls
 before_install:
