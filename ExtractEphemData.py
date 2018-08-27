@@ -109,9 +109,9 @@ def dummy_ExtractPosVelCov(ephemFile, ref_time):
             str = lines[linenum]
             if str.find(ref_time) == 0:
                 # dummy ephem file uses tabs from importing into Excel
-                values_stk = str.split('\t') 
-                #values = str.split(' ') # real ephem files use spaces
+                values_stk = str.split('\t')
+                # real ephem files use spaces
+                # values = str.split(' ')
     f.close()
 
     return values_stk
-
