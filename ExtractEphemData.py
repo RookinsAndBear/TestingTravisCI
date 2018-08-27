@@ -48,7 +48,7 @@ def odtk_ExtractPosVelCov(ephemFile, ref_time):
             pass
         else:
             convertTime = str(int(float("{:.8f}".
-                            format(float(x.split(' ')[0])))))
+                                        format(float(x.split(' ')[0])))))
 
         if convertTime == ref_time and len(x.split(' ')) > 1:
             count = count + 1
