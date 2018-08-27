@@ -48,7 +48,7 @@ def odtk_ExtractPosVelCov(ephemFile, ref_time):
             pass
         else:
             convertTime = str(int(float("{:.8f}".
-                          format(float(x.split(' ')[0])))))
+                            format(float(x.split(' ')[0])))))
 
         if convertTime == ref_time and len(x.split(' ')) > 1:
             count = count + 1
@@ -79,7 +79,7 @@ def dummy_ExtractPosVelCov(ephemFile, ref_time):
                                  - testing purposes
                                 original file does not contain covariance
                                  matrix.
-                                Search ephemeris file for reference time and 
+                                Search ephemeris file for reference time and
                                  extract Time, Pos, Vel, Lower Tri Cov Matrix.
 
         INPUT:  ephemFile:      string path and file name
@@ -87,7 +87,7 @@ def dummy_ExtractPosVelCov(ephemFile, ref_time):
 
         OUTPUT: values_stk:     STK data matrix [28 x 1]:
                                 7 x 1  time, position, velocity
-                                21 x 1 state covariance matrix lower 
+                                21 x 1 state covariance matrix lower
                                         triangular format
     '''
 
