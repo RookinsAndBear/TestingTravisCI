@@ -32,21 +32,23 @@ def odtk_ExtractPosVelCov(ephemFile, ref_time):
         open(ephemFile, 'r')
     except(FileNotFoundError):
         print("File Name or File Path Not Found")
-  
+
     if ref_time.find('e') > 0 or ref_time.find('E') > 0:
         raise ValueError('Reference time can not be in scientific notation')
 
-    f = open(ephemFile,'r')
+    f = open(ephemFile, 'r')
     lines = f.readlines()
-    count = 0; linenum = 0; convertTime = 0
+    count = 0
+    linenum = 0
+    convertTime = 0
 
     for x in lines:
         linenum = linenum + 1
         if x.split(' ')[0].find("e+") == -1:
             pass
         else:
-            convertTime = str(int(float("{:.8f}".\
-                          format(float(x.split(' ')[0])))))
+            convertTime = str(int(float("{:.8f}".
+                                        format(float(x.split(' ')[0])))))
 
         if convertTime == ref_time and len(x.split(' ')) > 1:
             count = count + 1
@@ -59,13 +61,15 @@ def odtk_ExtractPosVelCov(ephemFile, ref_time):
                 Cov_3 = lines[linenum+1].split(' ')
                 Cov_3 = Cov_3[22:len(Cov_3)]
 
-
     f.close()
-    values_stk = [TimePosVel[0],TimePosVel[1],TimePosVel[2],TimePosVel[3],\
-                    TimePosVel[4],TimePosVel[5],TimePosVel[6],
-                Cov_1[1],Cov_1[2],Cov_1[3],Cov_1[4],Cov_1[5],Cov_1[6],Cov_1[7],
-                Cov_2[0],Cov_2[1],Cov_2[2],Cov_2[3],Cov_2[4],Cov_2[5],Cov_2[6],
-                Cov_3[0],Cov_3[1],Cov_3[2],Cov_3[3],Cov_3[4],Cov_3[5],Cov_3[6]]
+    values_stk = [TimePosVel[0], TimePosVel[1], TimePosVel[2], TimePosVel[3],
+                  TimePosVel[4], TimePosVel[5], TimePosVel[6],
+                  Cov_1[1], Cov_1[2], Cov_1[3],
+                  Cov_1[4], Cov_1[5], Cov_1[6], Cov_1[7],
+                  Cov_2[0], Cov_2[1], Cov_2[2],
+                  Cov_2[3], Cov_2[4], Cov_2[5], Cov_2[6],
+                  Cov_3[0], Cov_3[1], Cov_3[2],
+                  Cov_3[3], Cov_3[4], Cov_3[5], Cov_3[6]]
 
     return values_stk
 
@@ -75,7 +79,7 @@ def dummy_ExtractPosVelCov(ephemFile, ref_time):
                                  - testing purposes
                                 original file does not contain covariance
                                  matrix.
-                                Search ephemeris file for reference time and 
+                                Search ephemeris file for reference time and
                                  extract Time, Pos, Vel, Lower Tri Cov Matrix.
 
         INPUT:  ephemFile:      string path and file name
@@ -83,7 +87,7 @@ def dummy_ExtractPosVelCov(ephemFile, ref_time):
 
         OUTPUT: values_stk:     STK data matrix [28 x 1]:
                                 7 x 1  time, position, velocity
-                                21 x 1 state covariance matrix lower 
+                                21 x 1 state covariance matrix lower
                                         triangular format
     '''
 
@@ -105,9 +109,9 @@ def dummy_ExtractPosVelCov(ephemFile, ref_time):
             str = lines[linenum]
             if str.find(ref_time) == 0:
                 # dummy ephem file uses tabs from importing into Excel
-                values_stk = str.split('\t') 
-                #values = str.split(' ') # real ephem files use spaces
+                values_stk = str.split('\t')
+                # real ephem files use spaces
+                # values = str.split(' ')
     f.close()
 
     return values_stk
-
