@@ -62,16 +62,15 @@ def odtk_ExtractPosVelCov(ephemFile, ref_time):
                 Cov_3 = lines[linenum+1].split(' ')
                 Cov_3 = Cov_3[22:len(Cov_3)]
 
-
     f.close()
     values_stk = [TimePosVel[0], TimePosVel[1], TimePosVel[2], TimePosVel[3],
                     TimePosVel[4], TimePosVel[5], TimePosVel[6],
-                Cov_1[1], Cov_1[2], Cov_1[3],
-                 Cov_1[4],Cov_1[5],Cov_1[6],Cov_1[7],
-                Cov_2[0], Cov_2[1], Cov_2[2],
-                 Cov_2[3], Cov_2[4], Cov_2[5], Cov_2[6],
-                Cov_3[0], Cov_3[1], Cov_3[2],
-                 Cov_3[3], Cov_3[4], Cov_3[5], Cov_3[6]]
+                    Cov_1[1], Cov_1[2], Cov_1[3],
+                    Cov_1[4], Cov_1[5], Cov_1[6], Cov_1[7],
+                    Cov_2[0], Cov_2[1], Cov_2[2],
+                    Cov_2[3], Cov_2[4], Cov_2[5], Cov_2[6],
+                    Cov_3[0], Cov_3[1], Cov_3[2],
+                    Cov_3[3], Cov_3[4], Cov_3[5], Cov_3[6]]
 
     return values_stk
 
