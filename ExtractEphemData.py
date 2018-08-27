@@ -32,20 +32,22 @@ def odtk_ExtractPosVelCov(ephemFile, ref_time):
         open(ephemFile, 'r')
     except(FileNotFoundError):
         print("File Name or File Path Not Found")
-  
+
     if ref_time.find('e') > 0 or ref_time.find('E') > 0:
         raise ValueError('Reference time can not be in scientific notation')
 
-    f = open(ephemFile,'r')
+    f = open(ephemFile, 'r')
     lines = f.readlines()
-    count = 0; linenum = 0; convertTime = 0
+    count = 0
+    linenum = 0
+    convertTime = 0
 
     for x in lines:
         linenum = linenum + 1
         if x.split(' ')[0].find("e+") == -1:
             pass
         else:
-            convertTime = str(int(float("{:.8f}".\
+            convertTime = str(int(float("{:.8f}".
                           format(float(x.split(' ')[0])))))
 
         if convertTime == ref_time and len(x.split(' ')) > 1:
@@ -61,11 +63,14 @@ def odtk_ExtractPosVelCov(ephemFile, ref_time):
 
 
     f.close()
-    values_stk = [TimePosVel[0],TimePosVel[1],TimePosVel[2],TimePosVel[3],\
-                    TimePosVel[4],TimePosVel[5],TimePosVel[6],
-                Cov_1[1],Cov_1[2],Cov_1[3],Cov_1[4],Cov_1[5],Cov_1[6],Cov_1[7],
-                Cov_2[0],Cov_2[1],Cov_2[2],Cov_2[3],Cov_2[4],Cov_2[5],Cov_2[6],
-                Cov_3[0],Cov_3[1],Cov_3[2],Cov_3[3],Cov_3[4],Cov_3[5],Cov_3[6]]
+    values_stk = [TimePosVel[0], TimePosVel[1], TimePosVel[2], TimePosVel[3],
+                    TimePosVel[4], TimePosVel[5], TimePosVel[6],
+                Cov_1[1], Cov_1[2], Cov_1[3],
+                 Cov_1[4],Cov_1[5],Cov_1[6],Cov_1[7],
+                Cov_2[0], Cov_2[1], Cov_2[2],
+                 Cov_2[3], Cov_2[4], Cov_2[5], Cov_2[6],
+                Cov_3[0], Cov_3[1], Cov_3[2],
+                 Cov_3[3], Cov_3[4], Cov_3[5], Cov_3[6]]
 
     return values_stk
 
