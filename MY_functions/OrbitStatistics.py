@@ -28,17 +28,17 @@ def CartCovSymmetricFromCartCovSTK(CartCov_stk):
                                 (upper triangle filled by symmetry)
     '''
 
-    CartCov =  np.matrix([[CartCov_stk[7], CartCov_stk[8], CartCov_stk[10],
+    CartCov = np.matrix([[CartCov_stk[7], CartCov_stk[8], CartCov_stk[10],
                           CartCov_stk[13], CartCov_stk[17], CartCov_stk[22]],
-                         [CartCov_stk[8], CartCov_stk[9], CartCov_stk[11],
+                        [CartCov_stk[8], CartCov_stk[9], CartCov_stk[11],
                           CartCov_stk[14], CartCov_stk[18], CartCov_stk[23]],
-                         [CartCov_stk[10], CartCov_stk[11], CartCov_stk[12],
+                        [CartCov_stk[10], CartCov_stk[11], CartCov_stk[12],
                           CartCov_stk[15], CartCov_stk[19], CartCov_stk[24]],
-                         [CartCov_stk[13], CartCov_stk[14], CartCov_stk[15],
+                        [CartCov_stk[13], CartCov_stk[14], CartCov_stk[15],
                           CartCov_stk[16], CartCov_stk[20], CartCov_stk[25]],
-                         [CartCov_stk[17], CartCov_stk[18], CartCov_stk[19],
+                        [CartCov_stk[17], CartCov_stk[18], CartCov_stk[19],
                           CartCov_stk[20], CartCov_stk[21], CartCov_stk[26]],
-                         [CartCov_stk[22], CartCov_stk[23], CartCov_stk[24],
+                        [CartCov_stk[22], CartCov_stk[23], CartCov_stk[24],
                           CartCov_stk[25], CartCov_stk[26], CartCov_stk[27]]])
 
     return CartCov
@@ -70,7 +70,7 @@ def ComputePeriodCovFromCartCov(pos, vel, CartCov_6x6, Gm):
     DPeriodDCartState = []
     for idx, val in enumerate(pos):
         # elements 0,1,2
-        DPeriodDCartState.append(coeff * Gm / rMag**3  * float(val))
+        DPeriodDCartState.append(coeff * Gm / rMag**3 * float(val))
 
     # deriv with respect to velocity
     for idx, val in enumerate(vel):
@@ -94,5 +94,5 @@ def TransformCovarianceScalar(C1, M):
                      as C2 = M*C1*M'
     '''
 
-    C2 = M * C1.astype(np.float) * M.reshape(6,1)
+    C2 = M * C1.astype(np.float) * M.reshape(6, 1)
     return C2
