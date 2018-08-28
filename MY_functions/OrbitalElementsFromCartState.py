@@ -8,7 +8,7 @@
     METHOD LIST:    OrbitEnergyFromCartState
                     SemimajorAxisFromCartState
                     OrbitPeriodFromSma
- '''
+'''
 
 import math
 import numpy as np
@@ -16,47 +16,48 @@ from numpy import linalg as la
 
 
 def OrbitEnergyFromCartState(rMag, vMag, Gm):
-    ''' OrbitEnergyFromCartState: 
+    ''' OrbitEnergyFromCartState:
         INPUT:  rMag:   scalar position magnitude (meters)
                 vMag:    scalar velocity magnitude (meters per second)
                 Gm:     gravitational param (m^3/sec^2)
-            
+
         OUTPUT: orbit energy from Cartesian state (m^2/s^2)
     '''
     if rMag == 0:
-        raise ZeroDivisionError('Can not divide by zero') 
+        raise ZeroDivisionError('Can not divide by zero')
 
     return (vMag**2 / 2)  - Gm / rMag
 
 
 def SemimajorAxisFromCartState(rMag, vMag, Gm):
-    ''' OrbitEnergyFromCartState: 
+    ''' OrbitEnergyFromCartState:
         INPUT:  rMag:   scalar position magnitude (meters)
                 vMag:    scalar velocity magnitude (meters per second)
                 Gm:     gravitational param (m^3/sec^2)
-            
+
         OUTPUT: semimajor axis from Cartesian state (m)
     '''
 
     orbitEnergy = OrbitEnergyFromCartState(rMag, vMag, Gm)
 
     if orbitEnergy == 0:
-        raise ZeroDivisionError('Can not divide by zero') 
+        raise ZeroDivisionError('Can not divide by zero')
 
     SemimajorAxisFromCartState = -Gm / (2 * orbitEnergy)
 
-    return SemimajorAxisFromCartState    
+    return SemimajorAxisFromCartState
 
-def OrbitPeriodFromSma(sma, Gm): 
-    ''' OrbitPeriodFromSma: 
+
+def OrbitPeriodFromSma(sma, Gm):
+    ''' OrbitPeriodFromSma:
         INPUT:  sma:    semimajor axis (m)
                 Gm:     gravitational param (m^3/sec^2)
-            
+
         OUTPUT: orbit period from semimajor axis (s)
     '''
 
     if Gm == 0:
-        raise ZeroDivisionError('Can not divide by zero') 
+        raise ZeroDivisionError('Can not divide by zero')
 
     if Gm < 0 or sma < 0:
         raise ValueError('Can not take a square root of a negative number')
