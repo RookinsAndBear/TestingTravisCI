@@ -24,7 +24,7 @@ class setPaths(object):
         OS = "/"
         config_file = home + OS + 'config' + OS + 'adam_config.json'
         config_template_file = home + OS + 'config' + OS +\
-                            'adam_config_template.json'
+            'adam_config_template.json'
 
         try:
             f = open(config_file)
