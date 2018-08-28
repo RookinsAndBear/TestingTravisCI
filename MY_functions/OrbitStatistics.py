@@ -86,7 +86,7 @@ def ComputePeriodCovFromCartCov(pos, vel, CartCov_6x6, Gm):
 
 
 def TransformCovarianceScalar(C1, M):
-    ''' TransformCovarianceScalar: 
+    ''' TransformCovarianceScalar:
         INPUT:  C1:  covariance matrix C1 in one coord system
                 M:   transformation matrix M from C1
 
