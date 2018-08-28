@@ -29,17 +29,17 @@ def CartCovSymmetricFromCartCovSTK(CartCov_stk):
     '''
 
     CartCov = np.matrix([[CartCov_stk[7], CartCov_stk[8], CartCov_stk[10],
-                          CartCov_stk[13], CartCov_stk[17], CartCov_stk[22]],
+                        CartCov_stk[13], CartCov_stk[17], CartCov_stk[22]],
                         [CartCov_stk[8], CartCov_stk[9], CartCov_stk[11],
-                          CartCov_stk[14], CartCov_stk[18], CartCov_stk[23]],
+                        CartCov_stk[14], CartCov_stk[18], CartCov_stk[23]],
                         [CartCov_stk[10], CartCov_stk[11], CartCov_stk[12],
-                          CartCov_stk[15], CartCov_stk[19], CartCov_stk[24]],
+                        CartCov_stk[15], CartCov_stk[19], CartCov_stk[24]],
                         [CartCov_stk[13], CartCov_stk[14], CartCov_stk[15],
-                          CartCov_stk[16], CartCov_stk[20], CartCov_stk[25]],
+                        CartCov_stk[16], CartCov_stk[20], CartCov_stk[25]],
                         [CartCov_stk[17], CartCov_stk[18], CartCov_stk[19],
-                          CartCov_stk[20], CartCov_stk[21], CartCov_stk[26]],
+                        CartCov_stk[20], CartCov_stk[21], CartCov_stk[26]],
                         [CartCov_stk[22], CartCov_stk[23], CartCov_stk[24],
-                          CartCov_stk[25], CartCov_stk[26], CartCov_stk[27]]])
+                        CartCov_stk[25], CartCov_stk[26], CartCov_stk[27]]])
 
     return CartCov
 
