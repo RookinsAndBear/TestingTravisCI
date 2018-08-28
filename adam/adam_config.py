@@ -24,7 +24,7 @@ class setPaths(object):
         OS = "/"
         config_file = home + OS + 'config' + OS + 'adam_config.json'
         config_template_file = home + OS + 'config' + OS +\
-                               'adam_config_template.json'
+                            'adam_config_template.json'
 
         try:
             f = open(config_file)
@@ -39,17 +39,17 @@ class setPaths(object):
         with open(file_to_open, 'r') as f:
             raw_config = json.load(f)
             adam_path = home + OS +\
-                        raw_config['adam_config']['adam_package_path']
+                    raw_config['adam_config']['adam_package_path']
             data_path = home + OS +\
-                        raw_config['adam_config']['data_path']
+                    raw_config['adam_config']['data_path']
             env_template_path = home + OS +\
-                        raw_config['adam_config']['environment_template_file']
+                    raw_config['adam_config']['environment_template_file']
             env_config_path = home + OS +\
-                        raw_config['adam_config']['environment_config_file']
+                    raw_config['adam_config']['environment_config_file']
             ephem_path = home + OS +\
-                        raw_config['adam_config']['ephem_path']
+                    raw_config['adam_config']['ephem_path']
             MY_functions_path = home + OS +\
-                        raw_config['MY_config']['MY_functions_path']
+                    raw_config['MY_config']['MY_functions_path']
 
         return (adam_path, data_path, env_template_path,
                 env_config_path, ephem_path, MY_functions_path)
