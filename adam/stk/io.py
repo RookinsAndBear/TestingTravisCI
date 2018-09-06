@@ -4,8 +4,9 @@ import numpy as np
 STK_VERSION = "11.1"
 VERBOSE = True
 
-__all__ = ["createVectorFile","createSensorFile", "createIntervalFile",
+__all__ = ["createVectorFile", "createSensorFile", "createIntervalFile",
            "convertPointingsToSensorInterval", "convertPointingsToVectorInterval"]
+
 
 def createVectorFile(fileName, exposureStart, exposureEnd,
                      ra, dec, epochStart,
@@ -64,6 +65,7 @@ def createVectorFile(fileName, exposureStart, exposureEnd,
 
     return
 
+
 def createSensorFile(fileName, exposureStart, exposureEnd,
                      azimuth, elevation, epochStart,
                      verbose=VERBOSE):
@@ -119,6 +121,7 @@ def createSensorFile(fileName, exposureStart, exposureEnd,
         print("")
 
     return
+
 
 def createIntervalFile(fileName, exposureStart,
                        exposureEnd, epochStart,
