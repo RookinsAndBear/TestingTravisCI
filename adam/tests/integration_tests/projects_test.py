@@ -38,8 +38,8 @@ class ProjectsTest(unittest.TestCase):
 
         children = children[1:]
         if len(children) > 0:
-            print("Cleaning up " + str(len(children))
-                  + " children of " + project.get_uuid())
+            print("Cleaning up " + str(len(children)) +
+                  " children of " + project.get_uuid())
         for p in reversed(children):
             self.service.get_projects_module().delete_project(p)
 
