@@ -123,9 +123,7 @@ def createSensorFile(fileName, exposureStart, exposureEnd,
     return
 
 
-def createIntervalFile(fileName, exposureStart,
-                             exposureEnd, epochStart,
-                             verbose=VERBOSE):
+def createIntervalFile(fileName, exposureStart, exposureEnd, epochStart, verbose=VERBOSE):
     """
     Builds an STK interval file given a series of sensor pointing times.
 
@@ -174,10 +172,7 @@ def createIntervalFile(fileName, exposureStart,
 
 
 def convertPointingsToSensorInterval(sensorFileName, intervalFileName, exposureStart,
-                     azimuth, elevation, epochStart,
-                     exposureEnd=None,
-                     exposureLength=None,
-                     verbose=VERBOSE):
+     azimuth, elevation, epochStart, exposureEnd=None, exposureLength=None, verbose=VERBOSE):
     """
     Builds a sensor pointing file and interval file for a series of sensor pointings.
 
