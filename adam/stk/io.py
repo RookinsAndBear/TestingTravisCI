@@ -172,7 +172,7 @@ def createIntervalFile(fileName, exposureStart, exposureEnd, epochStart, verbose
 
 
 def convertPointingsToSensorInterval(sensorFileName, intervalFileName, exposureStart,
-        azimuth, elevation, epochStart, exposureEnd=None, exposureLength=None, verbose=VERBOSE):
+         azimuth, elevation, epochStart, exposureEnd=None, exposureLength=None, verbose=VERBOSE):
     """
     Builds a sensor pointing file and interval file for a series of sensor pointings.
 
