@@ -15,12 +15,11 @@
                     test_odtk_ExtractPosVelCov
 '''
 
+import unittest
+import ExtractEphemData
 import sys
 from os.path import expanduser
 sys.path.append(expanduser("~") + "/adam_home/SEE_functions")
-
-import unittest
-import ExtractEphemData
 
 
 class Test_ExtractEphemData(unittest.TestCase):
@@ -80,7 +79,6 @@ class Test_ExtractEphemData(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             ephem_file = expanduser("~") + '/adam_home/data/ephem' + '/missing_dummy_ephem.e'
             ExtractEphemData.odtk_ExtractPosVelCov(ephem_file, '196')
-
 
 
 if __name__ == '__main__':
