@@ -33,7 +33,7 @@ class AstrogatorOutput:
     desired output values as columns. But the supported workflow
     needs the runs as columns, the output is transposed whenever
     requested.
-    
+
     This class can save the resulting values to a csv file, and
     load from it using pandas.
 
@@ -90,7 +90,7 @@ class AstrogatorOutput:
             * Decide what to do if add is called after update()
 
         """
-        self.events.append( [eventName, quantity, unit] )
+        self.events.append([eventName, quantity, unit])
 
     def update(self, gatorDefn, index):
         """Fetch & store the desired data from STK/Astrogator
@@ -111,19 +111,18 @@ class AstrogatorOutput:
               the new run
 
         """
-        tempArray = np.zeros([1,len(self.events)])
-        for i,eventRow in enumerate(self.events):
+        tempArray = np.zeros([1, len(self.events)])
+        for i, eventRow in enumerate(self.events):
             seg = gatorDefn.GetSegmentByName(eventRow[0])
-            tempArray[0,i] = seg.GetResultValue(eventRow[1]).Getin(eventRow[2]).value
+            tempArray[0, i] = seg.GetResultValue(eventRow[1]).Getin(eventRow[2]).value
         print(tempArray.T)
         print(tempArray.T.shape)
         if self.results is None:
             self.results = tempArray.T
         else:
-            self.results = np.concatenate(
-                          (self.results,tempArray.T),axis=1)
+            self.results = np.concatenate((self.results, tempArray.T), axis=1)
 
-    def saveCSV(self,path):
+    def saveCSV(self, path):
         """Save the output values to a csv file
 
         This uses the pandas dataframe funcationality to save the data.
@@ -149,7 +148,7 @@ class AstrogatorOutput:
         self.df.transpose().to_csv(path)
 
     @classmethod
-    def loadCSV(cls,path):
+    def loadCSV(cls, path):
         """ Load the data from a csv file
 
         This method loads data into the object from a csv file.
@@ -168,7 +167,7 @@ class AstrogatorOutput:
 
         """
         c = cls()
-        c._df = pd.read_csv(path,index_col=0)
+        c._df = pd.read_csv(path, index_col=0)
         c.results = c._df.as_matrix()
         c._rowNames = c._df.index.values.tolist()
 
@@ -178,7 +177,8 @@ class AstrogatorOutput:
         #  1) MCS Segment Name
         #  2) Desired CalcObject quantity
         #  3) Units
-        c.events = list(c.df.index.map(lambda x: x.replace(')','')).map(lambda x: x.replace('(','')).str.split(" ").values)
+        c.events = list(c.df.index.map(lambda x: x.replace(')','')).\
+                        map(lambda x: x.replace('(','')).str.split(" ").values)
         return c
 
     @property
@@ -223,5 +223,5 @@ class AstrogatorOutput:
             Panda data frame
         """
         if self._df is None:
-            self._df = pd.DataFrame(self.results.transpose(),columns=self.rowNames)
+            self._df = pd.DataFrame(self.results.transpose(), columns=self.rowNames)
         return self._df
