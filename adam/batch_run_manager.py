@@ -122,7 +122,7 @@ class BatchRunManager(object):
 
         def _submit_batches(i):
             # Grab all the creation parameters from the batch objects.
-            runs = self.batch_runs[i : i + submission_batch_size]
+            runs = self.batch_runs[i:i + submission_batch_size]
             params = [[b.get_propagation_params(), b.get_opm_params()] for b in runs]
 
             # Call to the server to create the batches.
