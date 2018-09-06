@@ -138,7 +138,7 @@ class StmPropagationModule(object):
 
         for i in range(0, x_dim):
             h_i = hs[i]
-            dy_dxi = (np.array(y_h[2*i]) - np.array(y_h[2*i+1])) / (2.0 * h_i)
+            dy_dxi = (np.array(y_h[2 * i]) - np.array(y_h[2 * i + 1])) / (2.0 * h_i)
             dy_dx[:, i] = dy_dxi
 
         dy_dx_matrix = np.matrix(dy_dx)
