@@ -124,8 +124,8 @@ def createSensorFile(fileName, exposureStart, exposureEnd,
 
 
 def createIntervalFile(fileName, exposureStart,
-                                 exposureEnd, epochStart,
-                                 verbose=VERBOSE):
+                             exposureEnd, epochStart,
+                             verbose=VERBOSE):
     """
     Builds an STK interval file given a series of sensor pointing times.
 
@@ -215,7 +215,7 @@ def convertPointingsToSensorInterval(sensorFileName, intervalFileName, exposureS
     """
     # Check that either exposureEnd or exposureLength are defined
     if exposureEnd is None and exposureLength is None:
-        raise ValueError("Either exposureLength or exposureEnd should be defined,
+        raise ValueError("Either exposureLength or exposureEnd should be defined,\
                          or else pointings will be interpolated.")
     elif exposureLength is not None and exposureEnd is None:
         exposureEnd = exposureStart + np.ones(len(exposureStart), dtype=int) * exposureLength
@@ -269,7 +269,7 @@ def convertPointingsToVectorInterval(vectorFileName, intervalFileName, exposureS
     """
     # Check that either exposureEnd or exposureLength are defined
     if exposureEnd is None and exposureLength is None:
-        raise ValueError("Either exposureLength or exposureEnd should be defined,
+        raise ValueError("Either exposureLength or exposureEnd should be defined,\
                          or else pointings will be interpolated.")
     elif exposureLength is not None and exposureEnd is None:
         exposureEnd = exposureStart + np.ones(len(exposureStart), dtype=int) * exposureLength
