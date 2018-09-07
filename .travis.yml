@@ -11,7 +11,7 @@ install:
 before_script:
 flake8 . --max-line-length=120
 script:
-- py.test adam --cov=adam --ignore=adam/tests/integration_tests/hypercube_test.py
+- py.test adam_home/adam --cov=adam --ignore=adam/tests/integration_tests/hypercube_test.py
 after_success:
 - coveralls
 # disable encryption testing for Travis to pass
