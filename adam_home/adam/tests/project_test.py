@@ -1,6 +1,6 @@
-from adam import Projects
-from adam.project import Project
-from adam.rest_proxy import _RestProxyForTest
+# from adam import Projects
+# from adam.project import Project
+# from adam.rest_proxy import _RestProxyForTest
 import unittest
 
 
