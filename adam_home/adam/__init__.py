@@ -21,3 +21,4 @@ from adam.rest_proxy import LoggingRestProxy
 from adam.rest_proxy import RetryingRestProxy
 from adam.stm_propagation_module import StmPropagationModule
 from adam.stk import *
+from adam import tests
