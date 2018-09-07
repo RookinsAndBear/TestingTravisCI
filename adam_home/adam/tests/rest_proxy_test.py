@@ -1,6 +1,6 @@
-from adam.rest_proxy import _RestProxyForTest
-from adam.rest_proxy import AuthenticatingRestProxy
-from adam.rest_proxy import RetryingRestProxy
+# from adam.rest_proxy import _RestProxyForTest
+# from adam.rest_proxy import AuthenticatingRestProxy
+# from adam.rest_proxy import RetryingRestProxy
 import unittest
 
 
