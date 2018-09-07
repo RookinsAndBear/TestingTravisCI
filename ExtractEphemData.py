@@ -58,7 +58,7 @@ def odtk_ExtractPosVelCov(ephemFile, ref_time):
                 Cov_1 = x.split(' ')
                 Cov_2 = lines[linenum].split(' ')
                 Cov_2 = Cov_2[22:len(Cov_2)]
-                Cov_3 = lines[linenum+1].split(' ')
+                Cov_3 = lines[linenum + 1].split(' ')
                 Cov_3 = Cov_3[22:len(Cov_3)]
 
     f.close()
