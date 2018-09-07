@@ -63,9 +63,9 @@ class test_OrbitStatistics(unittest.TestCase):
                                 [4.21462146377177e-02, 1.97961560364326e-02, -2.51847242620078e-02,
                                  -2.47329891882243e-09, -2.05478115461443e-07, 4.63398878632980e-07]])
 
-         CC_6x6 = OrbitStatistics.CartCovSymmetricFromCartCovSTK(values_stk)
+        CC_6x6 = OrbitStatistics.CartCovSymmetricFromCartCovSTK(values_stk)
 
-         self.assertEqual(CC_6x6.all(), CartCov_6x6.all())
+        self.assertEqual(CC_6x6.all(), CartCov_6x6.all())
 
         # if __name__ == '__main__':
         #    unittest.main()
