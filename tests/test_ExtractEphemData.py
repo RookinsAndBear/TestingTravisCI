@@ -24,7 +24,6 @@ sys.path.append(expanduser("~") + "/adam_home/SEE_functions")
 
 class Test_ExtractEphemData(unittest.TestCase):
 
-    
     def test_dummy_ExtractPosVelCov(self):
         ephem_file = expanduser("~") + '/adam_home/data/ephem' + '/dummy_ephem.e'
 
@@ -36,12 +35,12 @@ class Test_ExtractEphemData(unittest.TestCase):
 
         self.assertEqual(ExtractEphemData.dummy_ExtractPosVelCov(ephem_file, '29808000'), values_stk)
 
-        #Error handling
-        #option 1:
-        #self.assertRaises(ZeroDivisionError, ExtractEphemData.odtk_ExtractPosVelCov, 16, 0)
-        #option 2: use context manager
-        #with self.assertRaises(ZeroDivisionError):
-        #    ExtractEphemData.odtk_ExtractPosVelCov(175521278.778045,0)
+        # Error handling
+        # option 1:
+        # self.assertRaises(ZeroDivisionError, ExtractEphemData.odtk_ExtractPosVelCov, 16, 0)
+        # option 2: use context manager
+        # with self.assertRaises(ZeroDivisionError):
+        # ExtractEphemData.odtk_ExtractPosVelCov(175521278.778045,0)
 
         with self.assertRaises(ValueError):
             ExtractEphemData.dummy_ExtractPosVelCov(ephem_file, '2.9808000e+7')
@@ -66,12 +65,12 @@ class Test_ExtractEphemData(unittest.TestCase):
  
         self.assertEqual(ExtractEphemData.odtk_ExtractPosVelCov(ephem_file, '5606'), values_stk)
 
-        #Error handling
-        #option 1:
-        #self.assertRaises(ZeroDivisionError, ExtractEphemData.odtk_ExtractPosVelCov, 16, 0)
-        #option 2: use context manager
-        #with self.assertRaises(ZeroDivisionError):
-        #    ExtractEphemData.odtk_ExtractPosVelCov(175521278.778045,0)
+        # Error handling
+        # option 1:
+        # self.assertRaises(ZeroDivisionError, ExtractEphemData.odtk_ExtractPosVelCov, 16, 0)
+        # option 2: use context manager
+        # with self.assertRaises(ZeroDivisionError):
+        # ExtractEphemData.odtk_ExtractPosVelCov(175521278.778045,0)
 
         with self.assertRaises(ValueError):
             ExtractEphemData.odtk_ExtractPosVelCov(ephem_file, '5.60600000000000e+03')
