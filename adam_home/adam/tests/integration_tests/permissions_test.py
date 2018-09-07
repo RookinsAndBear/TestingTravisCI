@@ -1,6 +1,6 @@
-from adam import Service
-from adam import ConfigManager
-from adam import Permission
+# from adam import Service
+# from adam import ConfigManager
+# from adam import Permission
 
 import unittest
 
