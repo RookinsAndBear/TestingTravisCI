@@ -32,7 +32,7 @@ class Test_OrbitalElementsFromCartState(unittest.TestCase):
         # 175521278.778045,398600.5*1000000000), 731822.2514286994)
         # solution from excel macro
         self.assertAlmostEqual(OrbitalElementsFromCartState.OrbitPeriodFromSma(
-            175521278.778045,398600.5 * 1000000000), 731822.2514287010, 8)
+            175521278.778045, 398600.5 * 1000000000), 731822.2514287010, 8)
 
         # Error handling
         # option 1:
@@ -67,3 +67,4 @@ class Test_OrbitalElementsFromCartState(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
