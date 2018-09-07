@@ -177,8 +177,8 @@ class AstrogatorOutput:
         #  1) MCS Segment Name
         #  2) Desired CalcObject quantity
         #  3) Units
-        c.events = list(c.df.index.map(lambda x: x.replace(')','')).
-                        map(lambda x: x.replace('(','')).str.split(" ").values)
+        c.events = list(c.df.index.map(lambda x: x.replace(')', '')).
+                        map(lambda x: x.replace('(', '')).str.split(" ").values)
         return c
 
     @property
