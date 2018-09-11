@@ -1,7 +1,7 @@
-# from adam import Groups
-# from adam.group import Group
-# from adam.group import GroupMember
-# from adam.rest_proxy import _RestProxyForTest
+from adam import Groups
+from adam.group import Group
+from adam.group import GroupMember
+from adam.rest_proxy import _RestProxyForTest
 import unittest
 
 
