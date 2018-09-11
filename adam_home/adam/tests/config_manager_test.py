@@ -1,4 +1,4 @@
-# from adam import ConfigManager
+from adam import ConfigManager
 import json
 import unittest
 import tempfile
