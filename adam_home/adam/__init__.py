@@ -2,6 +2,7 @@
     __init__.py
 """
 
+from adam_home import adam
 from adam.auth import Auth
 from adam.batch import Batch
 from adam.batch import PropagationParams
