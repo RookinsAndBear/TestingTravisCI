@@ -1,6 +1,6 @@
-# from adam import Permission
-# from adam import Permissions
-# from adam.rest_proxy import _RestProxyForTest
+from adam import Permission
+from adam import Permissions
+from adam.rest_proxy import _RestProxyForTest
 import unittest
 
 
