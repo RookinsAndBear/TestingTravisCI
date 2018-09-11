@@ -1,8 +1,8 @@
-# from adam import Service
-# from adam import ConfigManager
-# from adam import Permission
-# from adam import PropagationParams
-# from adam import OpmParams
+from adam import Service
+from adam import ConfigManager
+from adam import Permission
+from adam import PropagationParams
+from adam import OpmParams
 
 import unittest
 
