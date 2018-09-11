@@ -1,5 +1,5 @@
-# from adam import Service
-# from adam import ConfigManager
+from adam import Service
+from adam import ConfigManager
 
 import unittest
 
