@@ -1,6 +1,6 @@
-# from adam import PropagatorConfigs
-# from adam.propagator_config import PropagatorConfig
-# from adam.rest_proxy import _RestProxyForTest
+from adam import PropagatorConfigs
+from adam.propagator_config import PropagatorConfig
+from adam.rest_proxy import _RestProxyForTest
 import unittest
 
 FULL_CONFIG_JSON_INPUT = {
