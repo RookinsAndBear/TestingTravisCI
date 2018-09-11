@@ -1,7 +1,7 @@
 """
     __init__.py
 """
-import adam
+
 from adam.auth import Auth
 from adam.batch import Batch
 from adam.batch import PropagationParams
