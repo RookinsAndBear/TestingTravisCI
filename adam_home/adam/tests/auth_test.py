@@ -1,5 +1,5 @@
-# from adam import Auth
-# from adam.rest_proxy import _RestProxyForTest
+from adam import Auth
+from adam.rest_proxy import _RestProxyForTest
 import json
 import unittest
 
