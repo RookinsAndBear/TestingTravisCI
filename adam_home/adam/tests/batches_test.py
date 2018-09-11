@@ -1,9 +1,9 @@
-# from adam import PropagationParams
-# from adam import OpmParams
-# from adam.batch import StateSummary
-# from adam import Batches
+from adam import PropagationParams
+from adam import OpmParams
+from adam.batch import StateSummary
+from adam import Batches
 
-# from adam.rest_proxy import _RestProxyForTest
+from adam.rest_proxy import _RestProxyForTest
 
 import unittest
 
