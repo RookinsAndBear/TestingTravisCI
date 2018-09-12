@@ -9,4 +9,4 @@ install:
 - pip install --upgrade setuptools
 - pip install -r requirements.txt
 script:
-- py.test adam_home/adam --cov=adam --ignore=adam_home/adam/tests/integration_tests/hypercube_test.py
+- py.test adam_home/ --cov=adam --ignore=adam_home/adam/tests/integration_tests/hypercube_test.py
