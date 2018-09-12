@@ -1,3 +1,3 @@
 # tests/__init__.py
 import sys
-sys.path.append('/adam_home/adam/tests')
+sys.path.append('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/adam/tests/')
