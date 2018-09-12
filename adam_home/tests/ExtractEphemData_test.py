@@ -25,7 +25,8 @@ sys.path.append(expanduser("~") + "/adam_home/SEE_functions")
 class Test_ExtractEphemData(unittest.TestCase):
 
     def test_dummy_ExtractPosVelCov(self):
-        ephem_file = expanduser("~") + '/adam_home/data/ephem' + '/dummy_ephem.e'
+        # ephem_file = expanduser("~") + '/adam_home/data/ephem' + '/dummy_ephem.e'
+        ephem_file = '/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/data/ephem' + '/dummy_ephem.e'
 
         values_stk = ['29808000',
                       '200705138.8', '-188817438.9', '-49873952.76', '736.5850035', '-2', '370.4811842',
@@ -46,11 +47,13 @@ class Test_ExtractEphemData(unittest.TestCase):
             ExtractEphemData.dummy_ExtractPosVelCov(ephem_file, '2.9808000e+7')
 
         with self.assertRaises(FileNotFoundError):
-            ephem_file = expanduser("~") + '/adam_home/data/ephem' + '/missing_dummy_ephem.e'
+            # ephem_file = expanduser("~") + '/adam_home/data/ephem' + '/missing_dummy_ephem.e'
+            ephem_file = '/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/data/ephem' + '/missing_dummy_ephem.e'
             ExtractEphemData.dummy_ExtractPosVelCov(ephem_file, '196')
 
     def test_odtk_ExtractPosVelCov(self):
-        ephem_file = expanduser("~") + '/adam_home/data/ephem' + '/modified_Sat_KPLO_PhasingOrbit_Fil_20200710_000000.e'
+        # ephem_file = expanduser("~") + '/adam_home/data/ephem' + '/modified_dummy.e'
+        ephem_file = '/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/data/ephem' + '/modified_dummy.e'
 
         values_stk = ['5.60600000000000e+03',
                       '4.07696263873150e+07', '-1.70809904449045e+08', '-9.66331679556395e+07',
