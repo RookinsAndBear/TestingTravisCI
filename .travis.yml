@@ -14,4 +14,4 @@ script:
 after_success:
 - coveralls
 before_install:
-- openssl aes-256-cbc -K $encrypted_3633a9d4c228_key -iv 0 -in test_config.json.enc -out test_config.json -d -p
+- openssl aes-256-cbc -in test_config.json.enc -out test_config.json -K $encrypted_3633a9d4c228_key -iv 0 -d -p
