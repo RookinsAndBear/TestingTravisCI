@@ -12,5 +12,3 @@ before_script: cd adam_home
 flake8 . --max-line-length=120
 script:
 - py.test tests
-before_install:
-- openssl aes-256-cbc -K $encrypted_3633a9d4c228_key -iv $encrypted_3633a9d4c228_iv -in test_config.json.enc -out test_config.json -d
