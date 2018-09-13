@@ -8,7 +8,6 @@ python:
 install:
 - pip install --upgrade setuptools
 - pip install -r requirements.txt
-before_script: cd adam_home
-flake8 . --max-line-length=120
+before_script: flake8 . --max-line-length=120
 script:
 - py.test tests
