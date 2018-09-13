@@ -8,6 +8,8 @@ python:
 install:
 - pip install --upgrade setuptools
 - pip install -r requirements.txt
-before_script: flake8 --max-line-length=125 --ignore=F401,F403 . 
+before_script:
+- cd adam_home 
+- flake8 --max-line-length=125 --ignore=F401,F403 . 
 script:
 - py.test tests
