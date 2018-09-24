@@ -26,4 +26,4 @@ install:
 before_script:
 - cd adam_home 
 script:
-- py.test
+- py.test tests
