@@ -4,7 +4,6 @@ branches:
   only:
   - master
   - /^development.*$/
-  - /^test_JNB.*$/
 python:
 - '3.6'
 install:
