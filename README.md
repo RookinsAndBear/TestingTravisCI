@@ -1,5 +1,5 @@
 # TestingTravisCI
- Part 1: Ttest travis.yml setup with flake8, encryption, and requirements.txt. 
+ Part 1: Test travis.yml setup with flake8, encryption, and requirements.txt. 
  Added unit testing to the travis.yml path. Obtained the green light!
 
 Part 2: Testing Jupyter notebooks with Travis.ci (https://github.com/ghego/travis_anaconda_jupyter)
