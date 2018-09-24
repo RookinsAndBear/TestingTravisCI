@@ -1,0 +1,17 @@
+language: python
+sudo: false
+branches:
+  only:
+  - master
+  - /^development.*$/
+  - /^test_JNB.*$/
+python:
+- '3.6'
+- '3.5'
+install:
+- pip install --upgrade setuptools
+- pip install -r requirements.txt
+before_script:
+- cd adam_home 
+script:
+- py.test tests
