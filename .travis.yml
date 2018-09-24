@@ -6,36 +6,17 @@ branches:
   - /^development.*$/
   - /^test_JNB.*$/
 python:
-#- '3.6'
-- '3.5'
+- '3.6'
 install:
-#- pip install --upgrade setuptools
-#- pip install -r requirements.txt
-- sudo apt-get update
-  # We do this conditionally because it saves us some downloading if the
-  # version is the same.
-  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
-      wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
-    else
-      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
-    fi
-  - bash miniconda.sh -b -p $HOME/miniconda
-  - export PATH="$HOME/miniconda/bin:$PATH"
-  - hash -r
-  - conda config --set always_yes yes --set changeps1 no
-  - conda update -q conda
-  # Useful for debugging any issues with conda
-  - conda info -a
-
-  - conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f environment.yml
-  - source activate test-environment
+- pip install --upgrade setuptools
+- pip install -r requirements.txt
 before_script:
 - cd adam_home 
-#- flake8 --max-line-length=125 --ignore=F401,F403 . 
+- flake8 --max-line-length=125 --ignore=F401,F403 . 
 script:
 - py.test tests
-#before_install:
-#- openssl aes-256-cbc -k "RooBearHersh5464" -in test_config.json.enc -out test_config.json -d
-#env:
-#  global:
-#    secure: ZUHAkevDNXbAY3EeQXEUzgTzT2PRpvsvlXpJqemXevdiE6hefl7BLlhcAk+rAb98MM52pEOhoS9HyUl10IV0x48RsuGc1A6D0ht6BG1M+ysQlLvjSmBwufXMP7XUulwpBeHyREF2uHKXzF36us26cdErbDJuSve/ONHVeEwNbRRSZUpUbz1vK85rflLgVlP8cg7o4ISz7+b+KIkRsPtFIzVTCcWwMVZBelQeuNomGWyh0PD7N0ESTV6UL9GQcVdmGb21auQVq2SDbNP/VfIsjrHS1TZXM0m7I/hdTRVgEzlnEF0Tfo7ionlcFa/QwSQpwq9932v8HOUDDUovFNeEipdUwn+Bgfa0e6d3g1XzKtuxy5tu8qRgO1CrvNPhjglV396U9FaPL2LyZ0lhamxSQxaGSEHOB0DvL3MuAYK/JrL+uv3qC14Myra3m5rUWdpBIFt62WhKJx8afHbvqWZKD1zcaGVDPzZlMeXwRTma4dWdWzDwaI6NpM6wLJU42NPYmuaBWZ2B6oCino1XtE8/EDfBpNP6kEN7jFk4IA/1Ky6v3R1+YmJdgdLydo91VXn7kDOOxl5KPJUDR13qQ5JeAS5rKRPB3nc0w/7qQbMVtzaWrs25adPbU4xLqBSH+XjTVNRRACs3HjY4d7ZfFetcoW/pD3Unv7MPQIYp2tV76pY=
+before_install:
+- openssl aes-256-cbc -k "RooBearHersh5464" -in test_config.json.enc -out test_config.json -d
+env:
+  global:
+    secure: ZUHAkevDNXbAY3EeQXEUzgTzT2PRpvsvlXpJqemXevdiE6hefl7BLlhcAk+rAb98MM52pEOhoS9HyUl10IV0x48RsuGc1A6D0ht6BG1M+ysQlLvjSmBwufXMP7XUulwpBeHyREF2uHKXzF36us26cdErbDJuSve/ONHVeEwNbRRSZUpUbz1vK85rflLgVlP8cg7o4ISz7+b+KIkRsPtFIzVTCcWwMVZBelQeuNomGWyh0PD7N0ESTV6UL9GQcVdmGb21auQVq2SDbNP/VfIsjrHS1TZXM0m7I/hdTRVgEzlnEF0Tfo7ionlcFa/QwSQpwq9932v8HOUDDUovFNeEipdUwn+Bgfa0e6d3g1XzKtuxy5tu8qRgO1CrvNPhjglV396U9FaPL2LyZ0lhamxSQxaGSEHOB0DvL3MuAYK/JrL+uv3qC14Myra3m5rUWdpBIFt62WhKJx8afHbvqWZKD1zcaGVDPzZlMeXwRTma4dWdWzDwaI6NpM6wLJU42NPYmuaBWZ2B6oCino1XtE8/EDfBpNP6kEN7jFk4IA/1Ky6v3R1+YmJdgdLydo91VXn7kDOOxl5KPJUDR13qQ5JeAS5rKRPB3nc0w/7qQbMVtzaWrs25adPbU4xLqBSH+XjTVNRRACs3HjY4d7ZfFetcoW/pD3Unv7MPQIYp2tV76pY=
