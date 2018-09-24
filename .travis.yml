@@ -15,6 +15,7 @@ install:
     fi
 - bash miniconda.sh -b -p $HOME/miniconda
 - export PATH="$HOME/miniconda/bin:$PATH"
+- hash -r
 before_script:
 - cd adam_home 
 script:
