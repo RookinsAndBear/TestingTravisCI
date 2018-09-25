@@ -6,3 +6,9 @@ dependencies:
 - numpy==1.13.1
 - jupyter==1.0
 - pytest==3.1.3
+- requests
+- tabulate
+- pandas
+- pytest-cov
+- coveralls
+- flake8
