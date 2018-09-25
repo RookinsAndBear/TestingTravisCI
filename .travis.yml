@@ -25,4 +25,4 @@ install:
 before_script:
 - cd adam_home/demos
 script:
-- py.test tests
+- py.test ../tests
