@@ -3,6 +3,7 @@ import tempfile
 
 
 def _exec_notebook(path):
+    print(path)
     with tempfile.NamedTemporaryFile(suffix=".ipynb") as fout:
         args = ["jupyter", "nbconvert", "--to", "notebook", "--execute",
                 "--ExecutePreprocessor.timeout=1000",
