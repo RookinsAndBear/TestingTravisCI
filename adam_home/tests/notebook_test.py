@@ -1,7 +1,7 @@
 import subprocess
 import tempfile
-import os
-import nbformat
+# import os
+# import nbformat
 
 # https://blog.thedataincubator.com/2016/06/testing-jupyter-notebooks/
 def _exec_notebook(path):
