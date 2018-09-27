@@ -12,8 +12,8 @@ def _exec_notebook(path):
                     execution errors
     '''
     
-    dirname, __ = os.path.split(path)
-    os.chdir(dirname)
+    # dirname, __ = os.path.split(path)
+    # os.chdir(dirname)
     # convert *.ipynb from jupyter notebook to py notebook
     with tempfile.NamedTemporaryFile(suffix=".ipynb") as fout:
         args = ["jupyter", "nbconvert", "--to", "notebook", "--execute",
@@ -23,16 +23,16 @@ def _exec_notebook(path):
         # output/error pipes, and obtain their return codes.
         subprocess.check_call(args)
         # seek() sets the file's current position.
-        fout.seek(0)
+        # fout.seek(0)
         
         # https://nbformat.readthedocs.io/en/latest/api.html
-        nb = nbformat.read(fout, nbformat.current_nbformat)
+        # nb = nbformat.read(fout, nbformat.current_nbformat)
         
-    errors = [output for cell in nb.cells if "outputs" in cell
-                for output in cell["outputs"]\
-                if output.output_type == "error"]
+    # errors = [output for cell in nb.cells if "outputs" in cell
+    #            for output in cell["outputs"]\
+    #            if output.output_type == "error"]
     
-    return nb, errors
+    # return nb, errors
         
 
 def test():
