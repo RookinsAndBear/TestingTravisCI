@@ -36,6 +36,6 @@ def _exec_notebook(path):
         
 
 def test():
-    print(os.path)
-    _exec_notebook(os.path + 'example.ipynb')
+    path = os.path + 'example.ipynb'
+    _exec_notebook(path)
     # _exec_notebook('Orbit_Period_Uncertainty_Trending_demo.ipynb') 
