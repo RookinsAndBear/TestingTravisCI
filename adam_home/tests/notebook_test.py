@@ -18,7 +18,7 @@ def _exec_notebook(path):
     with tempfile.NamedTemporaryFile(suffix=".ipynb") as fout:
         args = ["jupyter", "nbconvert", "--to", "notebook", "--execute",
                 "--ExecutePreprocessor.timeout=120",
-                "--ExecutePreprocessor.allow_errors=true",
+                "--ExecutePreprocessor.allow_errors=TRUE",
                 "--output", fout.name, path]
         # submodule allows you to spawn new processes, connect to their input/
         # output/error pipes, and obtain their return codes.
