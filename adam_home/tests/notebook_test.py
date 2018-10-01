@@ -15,10 +15,10 @@ def _exec_notebook(path):
     # dirname, __ = os.path.split(path)
     # os.chdir(dirname)
     # convert *.ipynb from jupyter notebook to py notebook
+    # "--ExecutePreprocessor.allow_errors=TRUE",
     with tempfile.NamedTemporaryFile(suffix=".ipynb") as fout:
         args = ["jupyter", "nbconvert", "--to", "notebook", "--execute",
                 "--ExecutePreprocessor.timeout=120",
-                "--ExecutePreprocessor.allow_errors=TRUE",
                 "--output", fout.name, path]
         # submodule allows you to spawn new processes, connect to their input/
         # output/error pipes, and obtain their return codes.
