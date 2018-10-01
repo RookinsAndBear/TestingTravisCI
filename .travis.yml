@@ -19,7 +19,8 @@ install:
 - hash -r
 - conda config --set always_yes yes --set changeps1 no
 - conda update conda
-- conda info -a
+# - conda info -a
+- conda info
 - conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f environment.yml
 - source activate test-environment
 before_script:
