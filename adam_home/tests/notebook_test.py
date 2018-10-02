@@ -36,9 +36,12 @@ def _exec_notebook(path):
     #            for output in cell["outputs"]\
     #          if output.output_type == "error"]
     
-    return # nb, errors
+    return 0 # nb, errors
         
 
 def test():
-    _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
+    # nb, errors = _notebook_run('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
+    r_val = _notebook_run('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
+    assert errors == []
+    # _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
     # _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/Orbit_Period_Uncertainty_Trending_demo.ipynb') 
