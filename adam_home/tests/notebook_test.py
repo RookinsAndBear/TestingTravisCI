@@ -27,7 +27,8 @@ def _exec_notebook(path):
         fout.seek(0)
         
         # https://nbformat.readthedocs.io/en/latest/api.html
-        nb = nbformat.read(fout, nbformat.current_nbformat)
+        # nb = nbformat.read(fout, nbformat.current_nbformat) #TypeError
+        nb = nbformat.read(fout, as_version=4)
         
     # errors = [output for cell in nb.cells if "outputs" in cell
     #            for output in cell["outputs"]\
