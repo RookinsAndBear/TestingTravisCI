@@ -41,7 +41,7 @@ def _exec_notebook(path):
 
 def test():
     # nb, errors = _notebook_run('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
-    r_val = _notebook_run('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
+    r_val = _notebook_run('example.ipynb')
     assert errors == []
     # _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
     # _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/Orbit_Period_Uncertainty_Trending_demo.ipynb') 
