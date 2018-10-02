@@ -28,10 +28,10 @@ def _exec_notebook(path):
         fout.seek(0)
         # https://www.reddit.com/r/learnpython/comments/4qa46k/json_object_must_be_str_not_bytes/
         # py3 uses bytes natively and the json parser can't handle it, convert to a string first.
-        byte2str = fout.read().decode('utf-8')
-        file2str = json.loads(byte2str)
+        dict2str = json.dumps(fout) #fout.read().decode('utf-8')
+        # file2str = json.loads(byte2str)
         # https://nbformat.readthedocs.io/en/latest/api.html
-        nb = nbformat.read(file2str, nbformat.current_nbformat) #TypeError
+        nb = nbformat.read(dict2str, nbformat.current_nbformat) #TypeError
         
         # https://nbformat.readthedocs.io/en/latest/format_description.html
         # nb = nbformat.read(fout, as_version=4)
