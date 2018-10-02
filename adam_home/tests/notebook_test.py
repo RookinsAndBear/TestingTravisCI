@@ -1,8 +1,8 @@
 import subprocess
 import tempfile
-import os
-import nbformat
-import json
+# import os
+# import nbformat
+# import json
 
 # https://blog.thedataincubator.com/2016/06/testing-jupyter-notebooks/
 def _exec_notebook(path):
@@ -18,17 +18,14 @@ def _exec_notebook(path):
     # convert *.ipynb from jupyter notebook to py notebook
     # "--ExecutePreprocessor.allow_errors=TRUE",
     with tempfile.NamedTemporaryFile(suffix=".ipynb") as fout:
-        args = ["jupyter", "nbconvert", "--to", "script", "--execute",
+        args = ["jupyter", "nbconvert", "--to", "notebook", "--execute",
                 "--ExecutePreprocessor.timeout=120",
                 "--output", fout.name, path]
-        # args = ["jupyter", "nbconvert", "--to", "notebook", "--execute",
-        #        "--ExecutePreprocessor.timeout=120",
-        #        "--output", fout.name, path]
         # submodule allows you to spawn new processes, connect to their input/
         # output/error pipes, and obtain their return codes.
         subprocess.check_call(args)
         # seek() sets the file's current position.
-        fout.seek(0)
+        # fout.seek(0)
         # https://www.reddit.com/r/learnpython/comments/4qa46k/json_object_must_be_str_not_bytes/
         # py3 uses bytes natively and the json parser can't handle it, convert to a string first.
         # dict2str = json.dumps(fout) #fout.read().decode('utf-8')
@@ -36,7 +33,7 @@ def _exec_notebook(path):
         # file2str = json.loads(byte2str)
         # https://nbformat.readthedocs.io/en/latest/api.html
         # nb = nbformat.read(dict2str, nbformat.current_nbformat) #TypeError
-        nb = nbformat.read(fout, nbformat.current_nbformat) #TypeError
+        # nb = nbformat.read(fout, nbformat.current_nbformat) #TypeError
         
         # https://nbformat.readthedocs.io/en/latest/format_description.html
         # nb = nbformat.read(fout, as_version=4)
@@ -45,12 +42,9 @@ def _exec_notebook(path):
     #            for output in cell["outputs"]\
     #          if output.output_type == "error"]
     
-    return 0 # nb, errors
+    return
         
 
 def test():
-    # nb, errors = _notebook_run('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
-    r_val = _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
-    assert errors == []
-    # _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
+    _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
     # _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/Orbit_Period_Uncertainty_Trending_demo.ipynb') 
