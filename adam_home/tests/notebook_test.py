@@ -24,10 +24,10 @@ def _exec_notebook(path):
         # output/error pipes, and obtain their return codes.
         subprocess.check_call(args)
         # seek() sets the file's current position.
-        # fout.seek(0)
+        fout.seek(0)
         
         # https://nbformat.readthedocs.io/en/latest/api.html
-        # nb = nbformat.read(fout, nbformat.current_nbformat)
+        nb = nbformat.read(fout, nbformat.current_nbformat)
         
     # errors = [output for cell in nb.cells if "outputs" in cell
     #            for output in cell["outputs"]\
