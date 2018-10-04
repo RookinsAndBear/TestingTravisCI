@@ -43,14 +43,14 @@ def _process_notebook(path):
         nb = nbformat.read(fout.name, nbformat.current_nbformat)
         
     errors = [output for cell in nb.cells if "outputs" in cell
-              for output in cell["outputs"]\
-              if output.output_type == "error"]
+                for output in cell["outputs"]\
+                if output.output_type == "error"]
     
     return nb, errors
 
 def test():
-    _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
-    _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/Orbit_Period_Uncertainty_Trending_demo.ipynb') 
+    # _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
+    # _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/Orbit_Period_Uncertainty_Trending_demo.ipynb') 
     nb, errors = _process_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/Orbit_Period_Uncertainty_Trending_demo.ipynb')
     # assert that errors is empty, otherwise fail
     assert errors == []
