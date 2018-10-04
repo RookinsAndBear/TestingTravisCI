@@ -1,13 +1,26 @@
 import subprocess
 import tempfile
-# import os
-# import nbformat
-# import json
+import nbformat
+from nbconvert.preprocessors import ExecutePreprocessor
 
-# https://blog.thedataincubator.com/2016/06/testing-jupyter-notebooks/
 def _exec_notebook(path):
     ''' 
-        Execute a jupyter notebook vis nbconvert and collect the output.
+        Execute a jupyter notebook via nbconvert.
+    '''
+    
+    with tempfile.NamedTemporaryFile(suffix=".ipynb") as fout:
+        args = ["jupyter", "nbconvert", "--to", "notebook", "--execute",
+                "--ExecutePreprocessor.timeout=120",
+                "--output", fout.name, path]
+
+        subprocess.check_call(args)
+    
+    return
+        
+# https://blog.thedataincubator.com/2016/06/testing-jupyter-notebooks/
+def _process_notebook(path):
+    ''' 
+        Execute a jupyter notebook via nbconvert and collect the output.
         
         returns:    parsed nb object
                     execution errors
@@ -16,7 +29,6 @@ def _exec_notebook(path):
     # dirname, __ = os.path.split(path)
     # os.chdir(dirname)
     # convert *.ipynb from jupyter notebook to py notebook
-    # "--ExecutePreprocessor.allow_errors=TRUE",
     with tempfile.NamedTemporaryFile(suffix=".ipynb") as fout:
         args = ["jupyter", "nbconvert", "--to", "notebook", "--execute",
                 "--ExecutePreprocessor.timeout=120",
@@ -25,7 +37,7 @@ def _exec_notebook(path):
         # output/error pipes, and obtain their return codes.
         subprocess.check_call(args)
         # seek() sets the file's current position.
-        # fout.seek(0)
+        fout.seek(0)
         # https://www.reddit.com/r/learnpython/comments/4qa46k/json_object_must_be_str_not_bytes/
         # py3 uses bytes natively and the json parser can't handle it, convert to a string first.
         # dict2str = json.dumps(fout) #fout.read().decode('utf-8')
@@ -33,7 +45,8 @@ def _exec_notebook(path):
         # file2str = json.loads(byte2str)
         # https://nbformat.readthedocs.io/en/latest/api.html
         # nb = nbformat.read(dict2str, nbformat.current_nbformat) #TypeError
-        # nb = nbformat.read(fout, nbformat.current_nbformat) #TypeError
+        fname = '/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/Orbit_Period_Uncertainty_Trending_demo.ipynb'
+        nb = nbformat.read(fname, nbformat.current_nbformat) #TypeError
         
         # https://nbformat.readthedocs.io/en/latest/format_description.html
         # nb = nbformat.read(fout, as_version=4)
@@ -43,8 +56,8 @@ def _exec_notebook(path):
     #          if output.output_type == "error"]
     
     return
-        
 
 def test():
     _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
     _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/Orbit_Period_Uncertainty_Trending_demo.ipynb') 
+    _process_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/Orbit_Period_Uncertainty_Trending_demo.ipynb')
