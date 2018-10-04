@@ -1,6 +1,7 @@
 import subprocess
 import tempfile
 import nbformat
+import os
 from nbconvert.preprocessors import ExecutePreprocessor
 
 def _exec_notebook(path):
@@ -26,21 +27,24 @@ def _process_notebook(path):
                     execution errors
     '''
     
-    # dirname, __ = os.path.split(path)
+    # in_file = '/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/Orbit_Period_Uncertainty_Trending_demo.ipynb'
+    dirname, in_file = os.path.split(path)
+    jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=60\ 
+                  --output jnb in_file
+    
     # os.chdir(dirname)
     # convert *.ipynb from jupyter notebook to py notebook
-    with tempfile.NamedTemporaryFile(suffix=".ipynb") as fout:
-        args = ["jupyter", "nbconvert", "--to", "notebook", "--execute",
-                "--ExecutePreprocessor.timeout=120",
-                "--output", fout.name, path]
+    #with tempfile.NamedTemporaryFile(suffix=".ipynb") as fout:
+    #    args = ["jupyter", "nbconvert", "--to", "notebook", "--execute",
+    #            "--ExecutePreprocessor.timeout=120",
+    #            "--output", fout.name, path]
         # submodule allows you to spawn new processes, connect to their input/
         # output/error pipes, and obtain their return codes.
-        subprocess.check_call(args)
+    subprocess.check_call(args)
         # seek() sets the file's current position.
-        fout.seek(0)
-        fname = '/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/Orbit_Period_Uncertainty_Trending_demo.ipynb'
-        nb = nbformat.read(fname, nbformat.current_nbformat) #TypeError
-        
+    #    fout.seek(0)
+       
+    nb = nbformat.read(in_file, nbformat.current_nbformat)
         
     errors = [output for cell in nb.cells if "outputs" in cell
               for output in cell["outputs"]\
