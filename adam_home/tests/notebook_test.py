@@ -29,8 +29,7 @@ def _process_notebook(path):
     
     # in_file = '/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/Orbit_Period_Uncertainty_Trending_demo.ipynb'
     dirname, in_file = os.path.split(path)
-    
-    # os.chdir(dirname)
+    os.chdir(dirname)
     # convert *.ipynb from jupyter notebook to py notebook
     with tempfile.NamedTemporaryFile(suffix=".ipynb") as fout:
         args = ["jupyter", "nbconvert", "--to", "notebook", "--execute",
