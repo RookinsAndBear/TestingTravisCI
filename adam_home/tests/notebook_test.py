@@ -44,7 +44,7 @@ def _process_notebook(path):
         
     errors = [output for cell in nb.cells if "outputs" in cell
               for output in cell["outputs"]\
-              if output.output_type == "error"]
+              if output.output_type == "failed"] #if output.output_type == "error"]
     
     return nb, errors
 
