@@ -13,3 +13,4 @@ dependencies:
 - coveralls
 - flake8
 - matplotlib
+- pywin32
