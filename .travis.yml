@@ -5,7 +5,7 @@ branches:
   - master
   - /^development.*$/
 python:
-- '3.3'
+- '2.7'
 install:
 - pip install --upgrade setuptools
 - pip install pypiwin32
