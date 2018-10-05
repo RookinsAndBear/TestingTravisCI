@@ -24,6 +24,8 @@ install:
 - conda info
 - conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f environment.yml
 - source activate test-environment
+before_install:
+- "pip install --upgrade pip wheel pytest requests setuptools"
 before_script:
 - cd adam_home/demos
 script:
