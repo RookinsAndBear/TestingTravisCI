@@ -5,10 +5,11 @@ branches:
   - master
   - /^development.*$/
 python:
-- '2.7'
+- '3.6'
 install:
 - pip install --upgrade setuptools
 # - pip install pywin32-ctypes
+# - pip install pypiwin32
 - sudo apt-get update
 - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
       wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
@@ -19,7 +20,7 @@ install:
 - export PATH="$HOME/miniconda/bin:$PATH"
 - hash -r
 - conda config --set always_yes yes --set changeps1 no
-- conda install pywin32 
+# - conda install pywin32 
 - conda update conda
 - conda info -a
 - conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f environment.yml
