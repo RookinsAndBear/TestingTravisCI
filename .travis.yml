@@ -19,7 +19,7 @@ install:
 - export PATH="$HOME/miniconda/bin:$PATH"
 - hash -r
 - conda config --set always_yes yes --set changeps1 no
-- conda install -c anaconda pywin32 
+- conda install pywin32 
 - conda update conda
 - conda info -a
 - conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f environment.yml
