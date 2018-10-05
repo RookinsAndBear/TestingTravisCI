@@ -13,4 +13,3 @@ dependencies:
 - coveralls
 - flake8
 - matplotlib
-- win32com.client
