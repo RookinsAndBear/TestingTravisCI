@@ -11,6 +11,7 @@ def _exec_notebook(path):
     
     with tempfile.NamedTemporaryFile(suffix=".ipynb") as fout:
         args = ["jupyter", "nbconvert", "--to", "notebook", "--execute",
+                "--ExecutePreprocessor.kernel_name=python3",
                 "--ExecutePreprocessor.timeout=120",
                 "--output", fout.name, path]
 
