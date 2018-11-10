@@ -20,7 +20,8 @@ install:
 - conda config --set always_yes yes --set changeps1 no
 - conda update conda
 - conda info -a
-- conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f environment.yml
+# - conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f environment.yml
+- conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f requirements.txt
 - source activate test-environment
 before_script:
 - cd adam_home/demos
