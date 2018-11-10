@@ -75,7 +75,8 @@ def test():
     # local
     # notebook_path = cwd + '/PublicAppVeyor/tests/example.ipynb'
     # appveyor
-    testdir = os.chdir("..")
+    os.chdir("..")
+    testdir = os.getcwd()
     notebook_path = testdir + '/tests/example.ipynb'
     #_exec_notebook(notebook_path)
     nb, errors = _process_notebook(notebook_path)
