@@ -19,7 +19,6 @@ install:
 - hash -r
 - conda config --set always_yes yes --set changeps1 no
 - conda update conda
-- conda update pyzqm
 - conda info -a
 # - conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f environment.yml
 - conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f requirements.txt
