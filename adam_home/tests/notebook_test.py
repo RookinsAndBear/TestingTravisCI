@@ -37,6 +37,6 @@ def _exec_notebook(path):
 
 def test():
     pass
-    #_exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/KariScience_withSTKWrapper.ipynb')
-    _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
+    _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/KariScience_withSTKWrapper.ipynb')
+    # _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
     # _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/Orbit_Period_Uncertainty_Trending_demo.ipynb') 
