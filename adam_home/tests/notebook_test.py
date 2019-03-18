@@ -42,7 +42,7 @@ def _process_notebook(path):
                 "--ExecutePreprocessor.timeout=120",
                 "--ExecutePreprocessor.kernel_name=python3",
                 #"--output", fout.name , path]
-                "--output", os.getcwd() + "/temp110518" , path]
+                "--output", os.getcwd() + "/temp031819" , path]
         # submodule allows you to spawn new processes, connect to their input/
         # output/error pipes, and obtain their return codes.
         # print(" ".join(args))
@@ -79,6 +79,9 @@ def test():
     testdir = os.getcwd()
     notebook_path = testdir + '/tests/example.ipynb'
     #_exec_notebook(notebook_path)
+    nb, errors = _process_notebook(notebook_path)
+    
+    notebook_path = testdir + '/tests/KariScience_withSTKwrapper.ipynb'
     nb, errors = _process_notebook(notebook_path)
 
     # assert that errors is empty, otherwise fail
