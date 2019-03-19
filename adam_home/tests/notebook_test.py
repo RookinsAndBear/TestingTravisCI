@@ -77,9 +77,9 @@ def test():
     # appveyor
     os.chdir("..")
     testdir = os.getcwd()
-    notebook_path = testdir + '/tests/example.ipynb'
-    #_exec_notebook(notebook_path)
-    nb, errors = _process_notebook(notebook_path)
+    #notebook_path = testdir + '/tests/example.ipynb'
+    ##_exec_notebook(notebook_path)
+    #nb, errors = _process_notebook(notebook_path)
     
     notebook_path = testdir + '/tests/KariScience_withSTKwrapper.ipynb'
     nb, errors = _process_notebook(notebook_path)
