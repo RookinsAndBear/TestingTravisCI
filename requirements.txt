@@ -8,3 +8,4 @@ coveralls
 flake8
 jupyter
 psutil
+matplotlib
