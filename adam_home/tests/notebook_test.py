@@ -59,10 +59,40 @@ def _process_notebook(path):
     return nb, errors
 
 
-        
-
 def test():
-    pass
-    _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/KariScience_withSTKWrapper.ipynb')
-    # _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/example.ipynb')
-    # _exec_notebook('/home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos/Orbit_Period_Uncertainty_Trending_demo.ipynb') 
+
+    cwd = os.getcwd()
+
+    print(cwd)
+
+    os.chdir("..")
+
+    testdir = os.getcwd()
+
+    notebook_path = testdir + '/tests/example.ipynb'
+
+    nb, errors_example = _process_notebook(notebook_path)
+
+    # assert that errors is 0, otherwise fail
+
+    assert error_example == 0, 'Executed Notebook Returned with ERRORS'
+    
+
+    notebook_path = testdir + '/tests/KariScience_withSTKwrapper.ipynb'
+
+    nb, errors_wrapper = _process_notebook(notebook_path)
+
+    # assert that errors is 0, otherwise fail
+
+    assert errors_wrapper == 0, 'Executed Notebook Returned with ERRORS'
+
+
+
+def main():
+
+    test()
+
+
+if __name__ == "__main__":
+
+    main() 
