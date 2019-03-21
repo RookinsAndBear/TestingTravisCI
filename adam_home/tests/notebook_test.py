@@ -61,7 +61,7 @@ def test():
     notebook_path = testdir + '/tests/example.ipynb'
     nb, errors_example = _process_notebook(notebook_path)
     # assert that errors is 0, otherwise fail
-    assert error_example == 0, 'Executed Notebook Returned with ERRORS'
+    assert errors_example == 0, 'Executed Notebook Returned with ERRORS'
     
 
 def main():
