@@ -78,7 +78,7 @@ def test():
     #assert error_example == 0, 'Executed Notebook Returned with ERRORS'
     
 
-    notebook_path = testdir + '/tests/KariScience_withSTKwrapper.ipynb'
+    notebook_path = testdir + '/tests/KariScience_withSTKWrapper.ipynb'
 
     nb, errors_wrapper = _process_notebook(notebook_path)
 
