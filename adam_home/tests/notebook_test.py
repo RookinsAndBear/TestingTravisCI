@@ -1,38 +1,64 @@
 import subprocess
 import tempfile
-# import os
-# import nbformat
+import nbformat
+import os
+from nbconvert.preprocessors import ExecutePreprocessor
+from nbconvert.preprocessors import CellExecutionError
 
-# https://blog.thedataincubator.com/2016/06/testing-jupyter-notebooks/
-def _exec_notebook(path):
+def _process_notebook(path):
+
     ''' 
-        Execute a jupyter notebook vis nbconvert and collect the output.
-        
+        Execute a jupyter notebook via nbconvert and collect the output.
         returns:    parsed nb object
+
                     execution errors
     '''
-    
-    # dirname, __ = os.path.split(path)
-    # os.chdir(dirname)
-    # convert *.ipynb from jupyter notebook to py notebook
+
     with tempfile.NamedTemporaryFile(suffix=".ipynb") as fout:
-        args = ["jupyter", "nbconvert", "--to", "notebook", "--execute",
+
+        args = ["jupyter", "nbconvert",
+
+                "--to", "notebook", "--execute",
+
                 "--ExecutePreprocessor.timeout=120",
-                "--output", fout.name, path]
-        # submodule allows you to spawn new processes, connect to their input/
-        # output/error pipes, and obtain their return codes.
+
+                "--ExecutePreprocessor.kernel_name=python3",
+
+                #"--output", fout.name , path]
+                "--output", os.getcwd() + "/temp031819" , path]
+
         subprocess.check_call(args)
-        # seek() sets the file's current position.
-        # fout.seek(0)
-        
-        # https://nbformat.readthedocs.io/en/latest/api.html
-        # nb = nbformat.read(fout, nbformat.current_nbformat)
-        
-    # errors = [output for cell in nb.cells if "outputs" in cell
-    #            for output in cell["outputs"]\
-    #            if output.output_type == "error"]
-    
-    # return nb, errors
+
+        fout.seek(0)
+
+        nb = nbformat.read(os.getcwd() + "/temp031819.ipynb", nbformat.current_nbformat)
+
+
+
+    stream_type = [output for cell in nb.cells if "outputs" in cell
+
+                for output in cell["outputs"]\
+
+                if output.output_type == "stream"]
+
+    errors = 0
+
+    for i in stream_type:
+
+        make_str = str(i)
+
+        # use doctest for unique string or set string message with unittest
+
+        if '***Test Failed***' in make_str: 
+
+            errors = 1
+
+            # print(i)
+
+
+    return nb, errors
+
+
         
 
 def test():
