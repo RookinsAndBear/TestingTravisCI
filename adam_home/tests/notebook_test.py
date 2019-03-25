@@ -4,6 +4,7 @@ import nbformat
 import os
 from nbconvert.preprocessors import ExecutePreprocessor
 from nbconvert.preprocessors import CellExecutionError
+import sys
 
 def _process_notebook(path):
 
@@ -51,6 +52,7 @@ def test():
     os.chdir("..")
     testdir = os.getcwd()
     print("Test directory (go up 1 level): ", testdir)
+    print(sys.path)
     
     # TEST KariScience_withSTKWrapper.ipynb
     notebook_path = testdir + '/tests/KariScience_withSTKWrapper.ipynb'
