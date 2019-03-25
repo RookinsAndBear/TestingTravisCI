@@ -47,11 +47,12 @@ def _process_notebook(path):
 def test():
 
     cwd = os.getcwd()
-    print(cwd)
+    print("Current working dir: ", cwd)
     os.chdir("..")
     testdir = os.getcwd()
+    print("Test directory (go up 1 level): ", testdir)
     
-    # TEST KariScience_withSTKWrapper.ipynb 
+    # TEST KariScience_withSTKWrapper.ipynb
     notebook_path = testdir + '/tests/KariScience_withSTKWrapper.ipynb'
     nb, errors_wrapper = _process_notebook(notebook_path)
     # assert that errors is 0, otherwise fail
