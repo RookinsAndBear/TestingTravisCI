@@ -48,11 +48,20 @@ def _process_notebook(path):
 def test():
 
     cwd = os.getcwd()
-    print("Current working dir: ", cwd)
+    print("Current working dir: ", cwd) 
+    #Current working dir:  /home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos
     os.chdir("..")
     testdir = os.getcwd()
     print("Test directory (go up 1 level): ", testdir)
+    #Test directory (go up 1 level):  /home/travis/build/RookinsAndBear/TestingTravisCI/adam_home
     print(sys.path)
+    
+    
+    # TEST STKWrapper_withDocstring.ipynb
+    notebook_path = cwd + '/STKWrapper_withDocstring.ipynb'
+    nb, errors_wrapper = _process_notebook(notebook_path)
+    # assert that errors is 0, otherwise fail
+    assert errors_wrapper == 0, 'Executed Notebook Returned with ERRORS'
     
     # TEST KariScience_withSTKWrapper.ipynb
     notebook_path = testdir + '/tests/KariScience_withSTKWrapper.ipynb'
