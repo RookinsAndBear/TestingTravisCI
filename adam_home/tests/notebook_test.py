@@ -58,7 +58,7 @@ def test():
     
     
     # TEST STKWrapper_withDocstring.ipynb
-    notebook_path = cwd + '/STKWrapper_withDocstring.ipynb'
+    notebook_path = cwd + '/STKWrapper_withDocstring_workingCopy.ipynb'
     nb, errors_wrapper = _process_notebook(notebook_path)
     # assert that errors is 0, otherwise fail
     assert errors_wrapper == 0, 'Executed Notebook Returned with ERRORS'
