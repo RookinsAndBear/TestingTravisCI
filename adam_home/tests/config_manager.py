@@ -46,6 +46,7 @@ class ConfigManager(object):
             return None
 
         for config in self.raw_config['env_configs']:
+            print(config)
             if config['env'] == environment:
                 return Config(config)
 
