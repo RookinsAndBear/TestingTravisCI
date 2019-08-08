@@ -31,11 +31,11 @@ class ConfigManager(object):
         """
 
         if file_name is not None:
-            print(file_name)
+            print("filename = ", file_name)
             with open(file_name, 'r') as f:
                 self.raw_config = json.load(f)
                 #print(self.raw_config)
-                print(self.raw_config['env_configs']['workspace'])
+                print("env - workspace = ", self.raw_config['env_configs']['workspace'])
         elif raw_config is not None:
             self.raw_config = raw_config
 
