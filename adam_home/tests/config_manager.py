@@ -1,4 +1,5 @@
 import json
+import os
 
 class Config(object):
     def __init__(self, config):
@@ -34,8 +35,8 @@ class ConfigManager(object):
             print("filename = ", file_name)
             with open(file_name, 'r') as f:
                 self.raw_config = json.load(f)
-                #print(self.raw_config)
-                print("env - workspace = ", self.raw_config['env_configs']['workspace'])
+                print(self.raw_config)
+                #print("env - workspace = ", self.raw_config['env_configs']['workspace'])
         elif raw_config is not None:
             self.raw_config = raw_config
 
@@ -53,8 +54,16 @@ class ConfigManager(object):
                 return Config(config)
 
         print("Error: could not find config for environment %s" % (environment))
+        #return self.raw_config['env_configs']['workspace']#None
         return None
 
     def to_file(self, file_name):
         with open(file_name, 'w') as f:
             json.dump(self.raw_config, f, indent=4)
+
+def main():
+    output = ConfigManager(os.getcwd() + '\\TestingTravisCI\\test_config.json').get_config()
+    print(output)
+
+if __name__ == "__main__":
+    main() 
