@@ -55,26 +55,25 @@ def test():
     print("Test directory (go up 1 level): ", testdir)
     #Test directory (go up 1 level):  /home/travis/build/RookinsAndBear/TestingTravisCI/adam_home
     print(sys.path)
-    
-    
+
     # TEST STKWrapper_withDocstring.ipynb
     notebook_path = cwd + '/STKWrapper_withDocstring_workingCopy.ipynb'
     nb, errors_wrapper = _process_notebook(notebook_path)
     # assert that errors is 0, otherwise fail
     assert errors_wrapper == 0, 'Executed Notebook Returned with ERRORS'
-    
+
     # TEST KariScience_withSTKWrapper.ipynb
     notebook_path = testdir + '/tests/KariScience_withSTKWrapper.ipynb'
     nb, errors_wrapper = _process_notebook(notebook_path)
     # assert that errors is 0, otherwise fail
     assert errors_wrapper == 0, 'Executed Notebook Returned with ERRORS'
-    
+
     # TEST example.ipynb
     notebook_path = testdir + '/tests/example.ipynb'
     nb, errors_example = _process_notebook(notebook_path)
     # assert that errors is 0, otherwise fail
     assert errors_example == 0, 'Executed Notebook Returned with ERRORS'
-    
+
 
 def main():
     test()
