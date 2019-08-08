@@ -30,6 +30,7 @@ class ConfigManager(object):
             checks raw_config, where it would expect a python dictionary
             as would be parsed using json from the config file.
         """
+        os.listdir(os.getcwd())
         if file_name is not None:
             with open(file_name, 'r') as f:
                 self.raw_config = json.load(f)
