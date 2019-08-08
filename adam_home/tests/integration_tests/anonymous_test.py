@@ -15,7 +15,14 @@ class AnonymousTest(unittest.TestCase):
     """
 
     def setUp(self):
-        os.listdir(os.getcwd())
+        cwd = os.getcwd()
+        print("Current working dir: ", cwd) 
+        #Current working dir:  /home/travis/build/RookinsAndBear/TestingTravisCI/adam_home/demos
+        os.chdir("..")
+        testdir = os.getcwd()
+        print("Test directory (go up 1 level): ", testdir)
+        #Test directory (go up 1 level):  /home/travis/build/RookinsAndBear/TestingTravisCI/adam_home
+        print(sys.path)
         self.config = ConfigManager(os.getcwd() + '/test_adam_config.json').get_config()
         self.config.set_token("")
         self.service = Service(self.config)
