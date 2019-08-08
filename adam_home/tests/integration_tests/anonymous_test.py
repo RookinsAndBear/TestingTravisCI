@@ -7,6 +7,7 @@ from adam import OpmParams
 import unittest
 
 import os
+import sys
 
 
 class AnonymousTest(unittest.TestCase):
