@@ -40,19 +40,19 @@ class ConfigManager(object):
         elif raw_config is not None:
             self.raw_config = raw_config
 
-        return self.raw_config
+        #return self.raw_config
 
-    def read_config(self, file_name):
+    def read_config(self,file_name,raw_config=None):
         if file_name is not None:
             print("filename = ", file_name)
             with open(file_name, 'r') as f:
-                self.raw_config = json.load(f)
-                print(self.raw_config)
+                raw_config = json.load(f)
+                print(raw_config)
                 #print("env - workspace = ", self.raw_config['env_configs']['workspace'])
-        elif raw_config is not None:
-            self.raw_config = raw_config
+        #elif raw_config is not None:
+        #    self.raw_config = raw_config
 
-        return self.raw_config
+        return raw_config
 
 
     def get_config(self, environment=None):
@@ -78,6 +78,8 @@ class ConfigManager(object):
 
 def main():
     output = ConfigManager(os.getcwd() + '\\TestingTravisCI\\test_config.json').get_config()
+    print(output)
+    output = ConfigManager(os.getcwd() + '\\TestingTravisCI\\test_config.json').read_config(os.getcwd() + '\\TestingTravisCI\\test_config.json')
     print(output)
 
 if __name__ == "__main__":
