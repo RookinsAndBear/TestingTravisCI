@@ -42,6 +42,7 @@ class ConfigManager(object):
             with open(file_name, 'r') as f:
                 raw_config = json.load(f)
                 print(raw_config)
+                raise ValueError('print raw_config', raw_config)
         return raw_config
 
     def get_config(self, environment=None):
