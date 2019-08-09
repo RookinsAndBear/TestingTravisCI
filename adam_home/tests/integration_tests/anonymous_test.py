@@ -24,9 +24,9 @@ class AnonymousTest(unittest.TestCase):
         print("Test directory (go up 1 level): ", testdir)
         #Test directory (go up 1 level):  /home/travis/build/RookinsAndBear/TestingTravisCI
         #print(sys.path)
-        self.config = ConfigManager(os.getcwd() + '/test_adam_config.json').get_config()
-        #config_env_token = ConfigManager(os.getcwd() + '/test_adam_config.json').get_config()
-        #print(config_env_token)
+        #self.config = ConfigManager(os.getcwd() + '/test_adam_config.json').get_config()
+        config_env_token = ConfigManager(os.getcwd() + '/test_adam_config.json').get_config()
+        print(config_env_token)
         self.config.set_token("")
         self.service = Service(self.config)
         self.assertTrue(self.service.setup())
