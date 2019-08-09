@@ -35,19 +35,17 @@ class ConfigManager(object):
             print("filename = ", file_name)
             with open(file_name, 'r') as f:
                 self.raw_config = json.load(f)
-                print(self.raw_config)
-                #print("env - workspace = ", self.raw_config['env_configs']['workspace'])
         elif raw_config is not None:
             self.raw_config = raw_config
 
         #return self.raw_config
 
-    def read_config(self,file_name,raw_config=None):
-        if file_name is not None:
-            print("filename = ", file_name)
-            with open(file_name, 'r') as f:
-                raw_config = json.load(f)
-                print(raw_config)
+    #def read_config(self,file_name,raw_config=None):
+    #    if file_name is not None:
+    #        print("filename = ", file_name)
+    #        with open(file_name, 'r') as f:
+    #            raw_config = json.load(f)
+    #            print(raw_config)
                 #print("env - workspace = ", self.raw_config['env_configs']['workspace'])
         #elif raw_config is not None:
         #    self.raw_config = raw_config
@@ -76,11 +74,11 @@ class ConfigManager(object):
         with open(file_name, 'w') as f:
             json.dump(self.raw_config, f, indent=4)
 
-def main():
-    output = ConfigManager(os.getcwd() + '\\TestingTravisCI\\test_config.json').get_config()
-    print(output)
-    output = ConfigManager(os.getcwd() + '\\TestingTravisCI\\test_config.json').read_config(os.getcwd() + '\\TestingTravisCI\\test_config.json')
-    print(output)
+#def main():
+#    output = ConfigManager(os.getcwd() + '\\TestingTravisCI\\test_config.json').get_config()
+#    print(output)
+#    output = ConfigManager(os.getcwd() + '\\TestingTravisCI\\test_config.json').read_config(os.getcwd() + '\\TestingTravisCI\\test_config.json')
+#    print(output)
 
 if __name__ == "__main__":
     main() 

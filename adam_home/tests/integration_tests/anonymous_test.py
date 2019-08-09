@@ -27,12 +27,11 @@ class AnonymousTest(unittest.TestCase):
         self.config = ConfigManager(os.getcwd() + '/test_adam_config.json').get_config()
         #config_env_token = ConfigManager(os.getcwd() + '/test_adam_config.json').get_config()
         #print(config_env_token)
-        config_env_token = ConfigManager(os.getcwd() + '/test_adam_config.json').read_config(os.getcwd() + '/test_adam_config.json')
-        print(config_env_token)
+        #config_env_token = ConfigManager(os.getcwd() + '/test_adam_config.json').read_config(os.getcwd() + '/test_adam_config.json')
+        #print(config_env_token)
         self.config.set_token("")
         self.service = Service(self.config)
         self.assertTrue(self.service.setup())
-
 
     def tearDown(self):
         self.service.teardown()
