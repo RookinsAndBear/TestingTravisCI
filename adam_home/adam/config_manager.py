@@ -1,6 +1,4 @@
 import json
-import os
-
 
 class Config(object):
     def __init__(self, config):
@@ -38,6 +36,13 @@ class ConfigManager(object):
         elif raw_config is not None:
             self.raw_config = raw_config
 
+    def read_config(self,file_name,raw_config=None):
+        if file_name is not None:
+            print("filename = ", file_name)
+            with open(file_name, 'r') as f:
+                raw_config = json.load(f)
+                print(raw_config)
+                
     def get_config(self, environment=None):
         if environment is None:
             if 'default_env' in self.raw_config:
