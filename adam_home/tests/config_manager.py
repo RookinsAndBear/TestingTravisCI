@@ -40,6 +40,8 @@ class ConfigManager(object):
         elif raw_config is not None:
             self.raw_config = raw_config
 
+        return self.raw_config
+
     def get_config(self, environment=None):
         if environment is None:
             if 'default_env' in self.raw_config:
@@ -54,8 +56,8 @@ class ConfigManager(object):
                 return Config(config)
 
         print("Error: could not find config for environment %s" % (environment))
-        #return self.raw_config['env_configs']['workspace']#None
-        return None
+        return self.raw_config['env_configs']['workspace']#None
+        #return None
 
     def to_file(self, file_name):
         with open(file_name, 'w') as f:
