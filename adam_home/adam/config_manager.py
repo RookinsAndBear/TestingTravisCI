@@ -42,7 +42,8 @@ class ConfigManager(object):
             with open(file_name, 'r') as f:
                 raw_config = json.load(f)
                 print(raw_config)
-                
+        return raw_config
+
     def get_config(self, environment=None):
         if environment is None:
             if 'default_env' in self.raw_config:
