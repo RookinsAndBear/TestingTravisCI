@@ -22,12 +22,7 @@ class AnonymousTest(unittest.TestCase):
         print(cwd_str)
         #matching = [s for s in cwd_str if "travis" in s]
         #print(matching)
-        # use == or is?
-        print("cwd_str[0] =", cwd_str[0])
-        print("cwd_str[1] =", cwd_str[1])
-        print("cwd_str[2] =", cwd_str[2])
-        if cwd_str[0] is "home" and cwd_str[1] is "travis" and cwd_str[2] is "build":
-            print("home/travis/build found in root dir")
+
         #Current working dir:  /home/travis/build/RookinsAndBear/TestingTravisCI/adam_home
         os.chdir("..")
         testdir = os.getcwd()
@@ -38,8 +33,13 @@ class AnonymousTest(unittest.TestCase):
 
         #config_env_token = ConfigManager(os.getcwd() + '/test_adam_config.json').get_config()
         #print(config_env_token)
-        config_env_token = ConfigManager(os.getcwd() + '/test_adam_config.json').read_config(os.getcwd() + '/test_adam_config.json')
-        print(config_env_token)
+        if cwd_str[1] is "home" and cwd_str[2] is "travis" and cwd_str[3] is "build":
+            print("home/travis/build found in root dir - DO NOT EXECUTE TRAVIS")
+            print("test_adam_config.enc.json is not available to Travis")
+        else:
+            config_env_token = ConfigManager(os.getcwd() + '/test_adam_config.json').read_config(os.getcwd() + '/test_adam_config.json')
+            print(config_env_token)
+            
         self.config.set_token("")
         self.service = Service(self.config)
         self.assertTrue(self.service.setup())
