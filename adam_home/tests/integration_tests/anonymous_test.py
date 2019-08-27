@@ -20,10 +20,13 @@ class AnonymousTest(unittest.TestCase):
         print("Current working dir: ", cwd) 
         cwd_str = str(cwd).split("/")
         print(cwd_str)
-        matching = [s for s in cwd_str if "travis" in s]
-        print(matching)
+        #matching = [s for s in cwd_str if "travis" in s]
+        #print(matching)
         # use == or is?
-        if cwd_str[0] == "home" and cwd_str[1] == "travis" and cwd_str[2] == "build":
+        print("cwd_str[0] =", cwd_str[0])
+        print("cwd_str[1] =", cwd_str[1])
+        print("cwd_str[2] =", cwd_str[2])
+        if cwd_str[0] is "home" and cwd_str[1] is "travis" and cwd_str[2] is "build":
             print("home/travis/build found in root dir")
         #Current working dir:  /home/travis/build/RookinsAndBear/TestingTravisCI/adam_home
         os.chdir("..")
