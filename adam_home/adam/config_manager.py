@@ -45,13 +45,13 @@ class ConfigManager(object):
         return raw_config
 
     def get_config(self, environment=None):
+        if environment is None and self.raw_config is None:
+            print('Error: no environment given, and no default environement specified.')
+            return None
+
         if environment is None:
             if 'default_env' in self.raw_config:
                 environment = self.raw_config['default_env']
-
-        if environment is None:
-            print('Error: no environment given, and no default environement specified.')
-            return None
 
         for config in self.raw_config['env_configs']:
             if config['env'] == environment:
