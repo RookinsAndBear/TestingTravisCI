@@ -17,16 +17,16 @@ class AnonymousTest(unittest.TestCase):
 
     def setUp(self):
         cwd = os.getcwd()
-        print("Current working dir: ", cwd) 
+        #print("Current working dir: ", cwd) 
         cwd_str = str(cwd).split("/")
-        print(cwd_str)
+        #print(cwd_str)
         #matching = [s for s in cwd_str if "travis" in s]
         #print(matching)
 
         #Current working dir:  /home/travis/build/RookinsAndBear/TestingTravisCI/adam_home
         os.chdir("..")
         testdir = os.getcwd()
-        print("Test directory (go up 1 level): ", testdir)
+        #print("Test directory (go up 1 level): ", testdir)
         #Test directory (go up 1 level):  /home/travis/build/RookinsAndBear/TestingTravisCI
         #print(sys.path)
         #self.config = ConfigManager(os.getcwd() + '/test_adam_config.json').get_config()
@@ -37,12 +37,15 @@ class AnonymousTest(unittest.TestCase):
         if cwd_str[1] == "home" and cwd_str[2] == "travis" and cwd_str[3] == "build":
             print("home/travis/build found in root dir - DO NOT EXECUTE TRAVIS")
             print("test_adam_config.enc.json is not available to Travis")
+            self.config = ConfigManager(None).get_config()
         else:
-            config_env_token = ConfigManager(os.getcwd() + '/test_adam_config.json').read_config(os.getcwd() + '/test_adam_config.json')
-            print(config_env_token)
-            self.config.set_token("")
-            self.service = Service(self.config)
-            self.assertTrue(self.service.setup())
+            self.config = ConfigManager(os.getcwd() + '/test_config.json').get_config()
+            # next line used for testing Travis output with decrypted json info.
+            #self.config = ConfigManager(os.getcwd() + '/test_adam_config.json').read_config(os.getcwd() + '/test_adam_config.json')
+
+        self.config.set_token("")
+        self.service = Service(self.config)
+        self.assertTrue(self.service.setup())
 
     def tearDown(self):
         self.service.teardown()
