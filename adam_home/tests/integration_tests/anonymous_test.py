@@ -38,7 +38,7 @@ class AnonymousTest(unittest.TestCase):
             print("home/travis/build found in root dir - DO NOT EXECUTE TRAVIS")
             print("test_adam_config.enc.json is not available to Travis")
             self.config = ConfigManager(None).get_config()
-            self.config.set_token("")
+            #self.config.set_token("")
             self.service = Service(self.config)
             self.assertTrue(self.service.setup())
         else:
