@@ -33,11 +33,6 @@ class AnonymousTest(unittest.TestCase):
 
         #config_env_token = ConfigManager(os.getcwd() + '/test_adam_config.json').get_config()
         #print(config_env_token)
-        if cwd_str[1] == "home":
-            print("== home")
-
-        if cwd_str[1] is "home":
-            print("is home")
             
         if cwd_str[1] == "home" and cwd_str[2] == "travis" and cwd_str[3] == "build":
             print("home/travis/build found in root dir - DO NOT EXECUTE TRAVIS")
@@ -45,10 +40,9 @@ class AnonymousTest(unittest.TestCase):
         else:
             config_env_token = ConfigManager(os.getcwd() + '/test_adam_config.json').read_config(os.getcwd() + '/test_adam_config.json')
             print(config_env_token)
-
-        self.config.set_token("")
-        self.service = Service(self.config)
-        self.assertTrue(self.service.setup())
+            self.config.set_token("")
+            self.service = Service(self.config)
+            self.assertTrue(self.service.setup())
 
     def tearDown(self):
         self.service.teardown()
