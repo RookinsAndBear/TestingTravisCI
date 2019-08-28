@@ -26,7 +26,7 @@ class AnonymousTest(unittest.TestCase):
         #Current working dir:  /home/travis/build/RookinsAndBear/TestingTravisCI/adam_home
         os.chdir("..")
         testdir = os.getcwd()
-        #print("Test directory (go up 1 level): ", testdir)
+        print("Test directory (go up 1 level): ", testdir)
         #Test directory (go up 1 level):  /home/travis/build/RookinsAndBear/TestingTravisCI
         #print(sys.path)
         #self.config = ConfigManager(os.getcwd() + '/test_adam_config.json').get_config()
@@ -38,14 +38,16 @@ class AnonymousTest(unittest.TestCase):
             print("home/travis/build found in root dir - DO NOT EXECUTE TRAVIS")
             print("test_adam_config.enc.json is not available to Travis")
             self.config = ConfigManager(None).get_config()
+            self.config.set_token("")
+            self.service = Service(self.config)
+            self.assertTrue(self.service.setup())
         else:
             self.config = ConfigManager(os.getcwd() + '/test_config.json').get_config()
             # next line used for testing Travis output with decrypted json info.
             #self.config = ConfigManager(os.getcwd() + '/test_adam_config.json').read_config(os.getcwd() + '/test_adam_config.json')
-
-        self.config.set_token("")
-        self.service = Service(self.config)
-        self.assertTrue(self.service.setup())
+            self.config.set_token("")
+            self.service = Service(self.config)
+            self.assertTrue(self.service.setup())
 
     def tearDown(self):
         self.service.teardown()
