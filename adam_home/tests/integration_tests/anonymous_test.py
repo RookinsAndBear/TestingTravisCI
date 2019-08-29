@@ -42,7 +42,7 @@ class AnonymousTest(unittest.TestCase):
             self.config = ConfigManager(os.getcwd() + '/adam_home/config/adam_config_template.json').get_config()
             print("home/travis/build found in root dir - USE JSON TEMPLATE")
             #self.config = ConfigManager(None).get_config()
-            self.config.set_token("")
+            self.config.set_token("0000000000000000000000000000")
             self.service = Service(self.config)
             self.assertTrue(self.service.setup())
         else:
