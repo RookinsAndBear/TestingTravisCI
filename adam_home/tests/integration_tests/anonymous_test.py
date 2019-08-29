@@ -36,9 +36,7 @@ class AnonymousTest(unittest.TestCase):
 
         #config_env_token = ConfigManager(os.getcwd() + '/test_adam_config.json').get_config()
         #print(config_env_token)
-
-
-        # TODO - what happens when cwd_str is shorter than 4 levels?   
+ 
         if len(cwd_str) > 4: 
             # TRAVIS CI option
             if cwd_str[1] == "home" and cwd_str[2] == "travis" and cwd_str[3] == "build":
@@ -49,7 +47,7 @@ class AnonymousTest(unittest.TestCase):
                 self.service = Service(self.config)
                 self.assertTrue(self.service.setup())
             else:
-                self.config = ConfigManager(os.getcwd() + '/test_config.json').get_config()
+                self.config = ConfigManager(os.getcwd() + '/adam_test_config.json').get_config()
                 # next line used for testing Travis output with decrypted json info.
                 #self.config = ConfigManager(os.getcwd() + '/test_adam_config.json').read_config(os.getcwd() + '/test_adam_config.json')
                 self.config.set_token("")
