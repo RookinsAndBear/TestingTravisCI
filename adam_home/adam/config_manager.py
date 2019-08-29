@@ -49,7 +49,9 @@ class ConfigManager(object):
         return raw_config
 
     def get_config(self, environment=None):
+        print("environment = ", environment)
         if environment is None:
+            print("get_config.inside => raw_config = ", self.raw_config)
             if 'default_env' in self.raw_config:
                 environment = self.raw_config['default_env']
 
