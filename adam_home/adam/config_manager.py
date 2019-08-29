@@ -33,6 +33,7 @@ class ConfigManager(object):
         if file_name is not None:
             with open(file_name, 'r') as f:
                 self.raw_config = json.load(f)
+                print("raw_config = ", self.raw_config)
         elif raw_config is not None:
             self.raw_config = raw_config
         
