@@ -43,7 +43,7 @@ class AnonymousTest(unittest.TestCase):
             # TRAVIS CI option
             if cwd_str[1] == "home" and cwd_str[2] == "travis" and cwd_str[3] == "build":
                 self.config = ConfigManager(os.getcwd() + '/adam_home/config/adam_config_template.json').get_config()
-                print(self.config.raw_config)
+                print(self.raw_config)
                 print("home/travis/build found in root dir - USE JSON TEMPLATE")
                 #self.config = ConfigManager(None).get_config()
                 self.config.set_token("")
