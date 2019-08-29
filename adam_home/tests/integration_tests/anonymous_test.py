@@ -1,3 +1,7 @@
+import os
+import sys
+#os.chdir("C:/Users/emmie/OneDrive/SEE_dev/TestingTravisCI/adam_home")
+#os.getcwd()
 from adam import Service
 from adam import ConfigManager
 from adam import Permission
@@ -6,8 +10,6 @@ from adam import OpmParams
 
 import unittest
 
-import os
-import sys
 
 
 class AnonymousTest(unittest.TestCase):
@@ -17,9 +19,9 @@ class AnonymousTest(unittest.TestCase):
 
     def setUp(self):
         cwd = os.getcwd()
-        #print("Current working dir: ", cwd) 
+        print("Current working dir: ", cwd) 
         cwd_str = str(cwd).split("/")
-        #print(cwd_str)
+        print(cwd_str)
         #matching = [s for s in cwd_str if "travis" in s]
         #print(matching)
 
@@ -35,9 +37,12 @@ class AnonymousTest(unittest.TestCase):
         #print(config_env_token)
             
         if cwd_str[1] == "home" and cwd_str[2] == "travis" and cwd_str[3] == "build":
-            print("home/travis/build found in root dir - DO NOT EXECUTE TRAVIS")
-            print("test_adam_config.enc.json is not available to Travis")
+            self.config = ConfigManager(os.getcwd() + '/adam_config_template.json').get_config()
+            print("home/travis/build found in root dir - USE JSON TEMPLATE")
             #self.config = ConfigManager(None).get_config()
+            self.config.set_token("")
+            self.service = Service(self.config)
+            self.assertTrue(self.service.setup())
         else:
             self.config = ConfigManager(os.getcwd() + '/test_config.json').get_config()
             # next line used for testing Travis output with decrypted json info.
