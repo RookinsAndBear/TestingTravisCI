@@ -35,9 +35,11 @@ class AnonymousTest(unittest.TestCase):
 
         #config_env_token = ConfigManager(os.getcwd() + '/test_adam_config.json').get_config()
         #print(config_env_token)
-            
+
+
+        # TODO - what happens when cwd_str is shorter than 4 levels?    
         if cwd_str[1] == "home" and cwd_str[2] == "travis" and cwd_str[3] == "build":
-            self.config = ConfigManager(os.getcwd() + '/adam_config_template.json').get_config()
+            self.config = ConfigManager(os.getcwd() + '/adam_home/config/adam_config_template.json').get_config()
             print("home/travis/build found in root dir - USE JSON TEMPLATE")
             #self.config = ConfigManager(None).get_config()
             self.config.set_token("")
